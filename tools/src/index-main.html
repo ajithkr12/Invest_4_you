@@ -1,0 +1,725 @@
+<main id="main">
+
+  <!-- ============ 1. Hero video slider ============
+       TODO: replace assets/videos/hero-1/2/3.mp4 and their .webp posters with real footage
+       (Pexels themes: family, office meeting, growth chart). Keep each MP4 under 3 MB, muted, no audio track.
+       Videos load only on screens 768px+ and never under reduced motion; phones see the posters. -->
+  <section class="hero" aria-label="Introduction">
+    <h1 class="sr-only">Invest 4U Solutions: insurance and investment advisors in Kochi since 1992</h1>
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="hero__media">
+            <picture>
+              <source media="(min-width: 768px)" srcset="assets/videos/hero-1.webp">
+              <img src="assets/videos/hero-1-mobile.webp" alt="" width="828" height="1472" fetchpriority="high">
+            </picture>
+            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-1.mp4"></video>
+          </div>
+          <!-- Slide 1 is video-only (client choice); its text is kept here, commented out. The page <h1> is the visually hidden heading above the slider.
+          <div class="hero__content">
+            <div class="container">
+              <div class="hero__inner">
+                <span class="eyebrow hero__anim" style="--d:0">Financial Architects · Since 1992</span>
+                <h2 class="hero__title hero__anim" style="--d:1">Empower Your Financial Future</h2>
+                <p class="hero__text hero__anim" style="--d:2">Expert investment guidance and personalised advice for every stage of your financial journey.</p>
+                <div class="btn-group hero__anim" style="--d:3">
+                  <a class="btn btn--lg" href="financial-checkup.html">Get Free Financial Checkup</a>
+                  <a class="btn btn--lg btn--outline-white" href="#services">Explore Services</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="swiper-slide">
+          <div class="hero__media">
+            <picture>
+              <source media="(min-width: 768px)" srcset="assets/videos/hero-2.webp">
+              <img src="assets/videos/hero-2-mobile.webp" alt="" width="828" height="1472" loading="lazy">
+            </picture>
+            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-2.mp4"></video>
+          </div>
+          <div class="hero__content">
+            <div class="container">
+              <div class="hero__inner">
+                <span class="eyebrow hero__anim" style="--d:0">Financial Architects</span>
+                <h2 class="hero__title hero__anim" style="--d:1">Protect What Matters Most</h2>
+                <p class="hero__text hero__anim" style="--d:2">Life, health and corporate insurance solutions trusted by families since 1992.</p>
+                <div class="btn-group hero__anim" style="--d:3">
+                  <a class="btn btn--lg" href="#contact">Talk to an Advisor</a>
+                  <a class="btn btn--lg btn--outline-white" href="services.html">Our Services</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="hero__media">
+            <picture>
+              <source media="(min-width: 768px)" srcset="assets/videos/hero-3.webp">
+              <img src="assets/videos/hero-3-mobile.webp" alt="" width="828" height="1472" loading="lazy">
+            </picture>
+            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-3.mp4"></video>
+          </div>
+          <div class="hero__content">
+            <div class="container">
+              <div class="hero__inner">
+                <span class="eyebrow hero__anim" style="--d:0">Financial Architects</span>
+                <h2 class="hero__title hero__anim" style="--d:1">Grow Your Wealth with Confidence</h2>
+                <p class="hero__text hero__anim" style="--d:2">Mutual funds, retirement and child education planning tailored to your goals.</p>
+                <div class="btn-group hero__anim" style="--d:3">
+                  <a class="btn btn--lg" href="financial-checkup.html">Start Planning</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hero__controls">
+      <div class="container">
+        <div class="swiper-pagination hero__pagination"></div>
+        <div class="hero__buttons">
+          <button class="hero__btn hero__prev" type="button" aria-label="Previous slide">{{icon:chevron-left}}</button>
+          <button class="hero__btn hero__toggle" type="button" aria-pressed="false" aria-label="Pause slideshow">{{icon:pause|icon--pause}}{{icon:play|icon--play}}</button>
+          <button class="hero__btn hero__next" type="button" aria-label="Next slide">{{icon:chevron-right}}</button>
+        </div>
+      </div>
+    </div>
+
+    <a class="scroll-indicator" href="#stats">
+      <span class="scroll-indicator__mouse" aria-hidden="true"></span>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- ============ 2. Stats strip (keep these figures identical on every page) ============ -->
+  <section class="stats bg-brand" id="stats" aria-label="Invest 4U in numbers">
+    <div class="container">
+      <ul class="stats__grid" data-counters>
+        <li class="stat" data-aos="fade-up">
+          <span class="stat__value"><span data-count="33">33</span>+</span>
+          <span class="stat__label">Years of Experience</span>
+        </li>
+        <li class="stat" data-aos="fade-up" data-aos-delay="100">
+          <span class="stat__value"><span data-count="10000">10,000</span>+</span>
+          <span class="stat__label">Happy Clients</span>
+        </li>
+        <li class="stat" data-aos="fade-up" data-aos-delay="200">
+          <span class="stat__value"><span data-count="1992" data-count-from="1950" data-plain>1992</span></span>
+          <span class="stat__label">Serving Kochi Since</span>
+        </li>
+        <li class="stat" data-aos="fade-up" data-aos-delay="300">
+          <span class="stat__value"><span data-count="2">2</span></span>
+          <span class="stat__label">Offices in Kochi</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 3. About ============ -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container split">
+      <div class="about-collage" data-aos="fade-right">
+        <div class="about-collage__main bracket">
+          <!-- TODO: replace with a real photo of the team or office -->
+          <img src="assets/images/about-1.webp" alt="An Invest 4U advisor meeting with clients (placeholder image)" width="800" height="600" loading="lazy">
+        </div>
+        <div class="about-collage__sub" data-aos="zoom-in" data-aos-delay="250">
+          <!-- TODO: replace with a real photo -->
+          <img src="assets/images/about-3.webp" alt="A family reviewing their financial plan (placeholder image)" width="800" height="600" loading="lazy">
+        </div>
+        <div class="about-collage__badge" data-aos="zoom-in" data-aos-delay="400">
+          <div><strong>33+</strong>years of trusted advice</div>
+        </div>
+      </div>
+
+      <div class="about__text" data-aos="fade-left">
+        <span class="eyebrow">About Us</span>
+        <h2 id="about-title">Guiding Investors for Over Three Decades</h2>
+        <p>Invest 4U began in 1992 in Tripunithura with one goal: to help local families protect what they have and plan for what they want. For more than three decades we have been a trusted partner of LIC of India, and today we also advise on health and corporate insurance, mutual funds and long-term financial planning.</p>
+        <p>In 2025 we formally registered as K &amp; VK Invest 4U Advisory Services LLP. Our approach hasn't changed: service first, with time-tested solutions for short and long-term goals, and support that continues long after the policy or investment is in place.</p>
+        <ul class="tick-list tick-list--2col">
+          <li>Personalised planning</li>
+          <li>Transparent advice</li>
+          <li>Lifelong service</li>
+          <li>Claim support</li>
+        </ul>
+        <a class="btn" href="about.html">Know More About Us {{icon:arrow-right|icon--arrow}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. Message from the Founder ============ -->
+  <section class="section founder bg-dark" aria-labelledby="founder-title">
+    <div class="container founder__grid">
+      <div class="founder__photo" data-aos="fade-right">
+        <span class="bracket-corner bracket-corner--tl" aria-hidden="true"></span>
+        <div class="founder__frame">
+          <!-- Portrait from the current invest4u.in site (low-res original, 350px). TODO: replace with a higher-resolution photo if available. -->
+          <img src="assets/images/founder.webp" alt="K.N. Krishnankutty, Founder and Managing Director of Invest 4U" width="640" height="794" loading="lazy">
+        </div>
+        <span class="bracket-corner bracket-corner--br" aria-hidden="true"></span>
+      </div>
+
+      <figure class="founder__quote" data-aos="fade-left">
+        <span class="eyebrow">Message from the Founder</span>
+        <h2 id="founder-title" class="sr-only">Message from the Founder</h2>
+        <div class="founder__quote-mark">{{icon:quote-left}}</div>
+        <!-- TODO: DRAFT message written for layout. The client must review, edit and approve it before launch. -->
+        <blockquote>
+          <p>When I started advising families in Tripunithura in 1992, I made a simple promise: treat every client's money as carefully as my own. Three decades later, that promise still guides everything we do.</p>
+          <p>We have sat with families as they bought their first policy, planned their children's education and prepared for retirement, and we have stood beside them when they needed to make a claim. Our mission is unchanged: to help every family we serve become financially secure, through honest advice and service that lasts a lifetime.</p>
+        </blockquote>
+        <p class="placeholder-note">Draft message: awaiting approval from the founder</p>
+        <figcaption class="founder__sign">
+          <!-- Optional: replace this SVG flourish with a scanned signature image -->
+          <svg class="founder__signature" viewBox="0 0 120 50" aria-hidden="true"><path d="M4 38c10-18 18-30 24-28s-6 26-2 28 12-22 18-22-2 18 2 18 10-14 16-14-2 12 2 12 14-10 22-12 18-2 30-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <div>
+            <p class="founder__name">K.N. Krishnankutty</p>
+            <p class="founder__role">Founder &amp; Managing Director</p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 5. Services ============ -->
+  <section class="section bg-alt" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">Our Services</span>
+        <h2 id="services-title">Comprehensive Financial Solutions Tailored for You</h2>
+        <p>From protecting your family to growing your savings, we help you choose the right products and stay with you for the long run.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card card--service" data-aos="fade-up">
+          <span class="icon-circle">{{icon:people-roof}}</span>
+          <h3>Life Insurance</h3>
+          <p>Future value protection: long-term security and financial stability for you and your loved ones, whatever life brings.</p>
+          <a class="link-arrow" href="life-insurance.html">Learn more<span class="sr-only"> about life insurance</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--service" data-aos="fade-up" data-aos-delay="100">
+          <span class="icon-circle">{{icon:heart-pulse}}</span>
+          <h3>Health Insurance</h3>
+          <p>Financial security and peace of mind during medical challenges, with access to quality healthcare when it matters most.</p>
+          <a class="link-arrow" href="health-insurance.html">Learn more<span class="sr-only"> about health insurance</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--service" data-aos="fade-up" data-aos-delay="200">
+          <span class="icon-circle">{{icon:building-shield}}</span>
+          <h3>Corporate Insurance</h3>
+          <p>Safeguard your organisation's assets, leadership and people against the unforeseen, for continuity and long-term growth.</p>
+          <a class="link-arrow" href="corporate-insurance.html">Learn more<span class="sr-only"> about corporate insurance</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--service" data-aos="fade-up">
+          <span class="icon-circle">{{icon:chart-line}}</span>
+          <h3>Mutual Funds</h3>
+          <p>Equity, debt and liquid funds chosen to match your goals, time frame and comfort with risk.</p>
+          <a class="link-arrow" href="mutual-funds.html">Learn more<span class="sr-only"> about mutual funds</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--service" data-aos="fade-up" data-aos-delay="100">
+          <span class="icon-circle">{{icon:person-cane}}</span>
+          <h3>Retirement Planning</h3>
+          <p>Lasting peace of mind and financial independence, so your resources keep supporting your lifestyle after work.</p>
+          <a class="link-arrow" href="retirement-planning.html">Learn more<span class="sr-only"> about retirement planning</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--service" data-aos="fade-up" data-aos-delay="200">
+          <span class="icon-circle">{{icon:graduation-cap}}</span>
+          <h3>Child Education Planning</h3>
+          <p>Start early and save steadily so your children's education is funded when the time comes.</p>
+          <a class="link-arrow" href="child-education.html">Learn more<span class="sr-only"> about child education planning</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--service" data-aos="fade-up">
+          <span class="icon-circle">{{icon:file-invoice-dollar}}</span>
+          <h3>Tax Planning</h3>
+          <p>Use Section 80C and 80D deductions wisely, choosing investments that also serve your goals.</p>
+          <a class="link-arrow" href="tax-planning.html">Learn more<span class="sr-only"> about tax planning</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--service" data-aos="fade-up" data-aos-delay="100">
+          <span class="icon-circle">{{icon:sack-dollar}}</span>
+          <h3>Wealth Creation &amp; Estate Planning</h3>
+          <p>Build a strong, resilient foundation through strategic planning and smart investments, for prosperity that lasts generations.</p>
+          <!-- TODO: no detail page yet; links to the overview section until the client decides -->
+          <a class="link-arrow" href="services.html#wealth">Learn more<span class="sr-only"> about wealth creation and estate planning</span> {{icon:arrow-right}}</a>
+        </article>
+        <article class="card card--cta" data-aos="fade-up" data-aos-delay="200">
+          <h3>Not sure where to start?</h3>
+          <p>Book a free financial checkup and we'll help you work out what you need, and what you don't.</p>
+          <a class="btn" href="financial-checkup.html">Book Free Checkup</a>
+        </article>
+      </div>
+
+      <div class="notice services__note" data-aos="fade-up">
+        {{icon:shield}}
+        <p><strong>Mutual fund investments are subject to market risks, read all scheme related documents carefully.</strong> Insurance is the subject matter of solicitation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Free Financial Health Checkup ============ -->
+  <section class="section bg-tint" aria-labelledby="checkup-title">
+    <div class="container">
+      <div class="checkup-card" data-aos="zoom-in">
+        <div>
+          <span class="eyebrow">Free Financial Health Checkup</span>
+          <h2 id="checkup-title">Your Financial Health, Our Priority: Get a Free Checkup</h2>
+          <p>In one friendly conversation we look at your insurance, savings and goals, and show you where you stand. No cost and no obligation.</p>
+          <a class="btn btn--lg" href="contact.html?service=checkup">Book Free Checkup {{icon:arrow-right|icon--arrow}}</a>
+        </div>
+        <div>
+          <ol class="steps" data-inview>
+            <li class="steps__line" aria-hidden="true"></li>
+            <li class="step">
+              <span class="step__icon">{{icon:bullseye}}</span>
+              <div>
+                <h3>Share your goals</h3>
+                <p>Tell us about your family, income and what you're planning for.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__icon">{{icon:magnifying-glass-chart}}</span>
+              <div>
+                <h3>Get a personalised review</h3>
+                <p>We review your existing policies and investments for gaps and overlaps.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__icon">{{icon:route}}</span>
+              <div>
+                <h3>Follow a clear plan</h3>
+                <p>You get simple, prioritised next steps, and we're here to help with each one.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. How we work ============ -->
+  <section class="section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">How We Work</span>
+        <h2 id="process-title">Your Journey with Invest 4U: Simple, Transparent, Personalised</h2>
+      </div>
+      <ol class="timeline" data-inview>
+        <li class="timeline__line" aria-hidden="true"></li>
+        <li class="timeline__step" data-aos="fade-up">
+          <span class="timeline__num" aria-hidden="true">01</span>
+          <div>
+            <h3>Consultation</h3>
+            <p>We meet, at our office or yours, to understand your family, income and goals.</p>
+          </div>
+        </li>
+        <li class="timeline__step" data-aos="fade-up" data-aos-delay="150">
+          <span class="timeline__num" aria-hidden="true">02</span>
+          <div>
+            <h3>Analysis</h3>
+            <p>We study your current cover and investments and find the gaps.</p>
+          </div>
+        </li>
+        <li class="timeline__step" data-aos="fade-up" data-aos-delay="300">
+          <span class="timeline__num" aria-hidden="true">03</span>
+          <div>
+            <h3>Recommendation</h3>
+            <p>You get clear options, costs and trade-offs explained in plain language.</p>
+          </div>
+        </li>
+        <li class="timeline__step" data-aos="fade-up" data-aos-delay="450">
+          <span class="timeline__num" aria-hidden="true">04</span>
+          <div>
+            <h3>Ongoing Support</h3>
+            <p>Renewals, reviews and claims: we stay with you for the long term.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 8. Why choose us ============ -->
+  <section class="section bg-alt" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 id="why-title">Advice You Can Trust, Service You Can Count On</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card feature" data-aos="fade-up">
+          <span class="icon-circle">{{icon:award}}</span>
+          <div><h3>33+ years of experience</h3><p>Advising families and businesses in Kochi since 1992.</p></div>
+        </div>
+        <div class="card feature" data-aos="fade-up" data-aos-delay="100">
+          <span class="icon-circle">{{icon:users}}</span>
+          <div><h3>10,000+ clients</h3><p>Families who have trusted us with their protection and savings.</p></div>
+        </div>
+        <div class="card feature" data-aos="fade-up" data-aos-delay="200">
+          <span class="icon-circle">{{icon:layer-group}}</span>
+          <div><h3>Multi-insurer options</h3><p>We compare plans across insurers to find what fits you best.</p></div>
+        </div>
+        <div class="card feature" data-aos="fade-up">
+          <span class="icon-circle">{{icon:hand-holding-medical}}</span>
+          <div><h3>Claim assistance</h3><p>We handle the paperwork and follow up with the insurer for you.</p></div>
+        </div>
+        <div class="card feature" data-aos="fade-up" data-aos-delay="100">
+          <span class="icon-circle">{{icon:house-user}}</span>
+          <div><h3>Doorstep service</h3><p>We can meet you at home or at work, at a time that suits you.</p></div>
+        </div>
+        <div class="card feature" data-aos="fade-up" data-aos-delay="200">
+          <span class="icon-circle">{{icon:rotate}}</span>
+          <div><h3>Free reviews</h3><p>Regular check-ins to keep your plan in step with your life.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. Partners ============
+       Insurer logos are the client's own copies from the current invest4u.in site; CAMS is its official logo.
+       TODO: confirm the partner list and permission to display each logo. -->
+  <section class="section section--sm" aria-labelledby="partners-title">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">Our Partners</span>
+        <h2 id="partners-title">Insurance and Fund Partners</h2>
+      </div>
+      <div class="marquee">
+        <div class="marquee__track">
+          <ul class="marquee__list">
+            <li><img src="assets/images/partners/lic.webp" alt="LIC of India" width="150" height="83" loading="lazy"></li>
+            <li><img src="assets/images/partners/star-health.webp" alt="Star Health" width="203" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/icici-lombard.webp" alt="ICICI Lombard" width="247" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/united-india.webp" alt="United India Insurance" width="185" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/national-insurance.webp" alt="National Insurance" width="191" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/cams.svg" alt="CAMS" width="500" height="176" loading="lazy"></li>
+          </ul>
+          <ul class="marquee__list" aria-hidden="true">
+            <li><img src="assets/images/partners/lic.webp" alt="" width="150" height="83" loading="lazy"></li>
+            <li><img src="assets/images/partners/star-health.webp" alt="" width="203" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/icici-lombard.webp" alt="" width="247" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/united-india.webp" alt="" width="185" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/national-insurance.webp" alt="" width="191" height="89" loading="lazy"></li>
+            <li><img src="assets/images/partners/cams.svg" alt="" width="500" height="176" loading="lazy"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10. Testimonials: scroll-driven 3D card cloud (modelled on groww.in) ============
+       The section is taller than the screen; its panel sticks while you scroll, and main.js (initTestimonialCloud)
+       sets --p (0 → 1) so the "camera" flies forward through the cards. Phones: swipeable row.
+       Reduced motion / no JS: plain grid. -->
+  <section class="testimonials tc" id="testimonials" aria-labelledby="testimonials-title">
+    <div class="tc__sticky">
+      <div class="tc__head">
+        <span class="eyebrow">What our clients say</span>
+        <h2 id="testimonials-title">Trusted by 10,000+ families since 1992</h2>
+        <a class="btn" href="financial-checkup.html">Book Free Checkup {{icon:arrow-right|icon--arrow}}</a>
+      </div>
+      <div class="tc__cloud" role="region" aria-label="Client testimonials" tabindex="0">
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-34vw; --y:-26vh; --zn:-300">
+          <blockquote class="tc-card__text"><p>We took our first LIC policy with Invest 4U over twenty years ago. They still remind us before every premium and updated our nominations without us visiting the LIC office once.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">RM</span>
+            <span><cite class="tc-card__name">Rajesh M.</cite><span class="tc-card__role">Government Employee, Tripunithura</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-4vw; --y:-34vh; --zn:-800">
+          <blockquote class="tc-card__text"><p>When my mother was admitted to hospital, the team arranged the cashless approval with the insurer within hours. We didn't have to chase a single document.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">AS</span>
+            <span><cite class="tc-card__name">Anitha S.</cite><span class="tc-card__role">Teacher, Vyttila</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:25vw; --y:-28vh; --zn:-450">
+          <blockquote class="tc-card__text"><p>They worked out exactly how much I needed to retire and set up a monthly income plan. Two years into retirement, the money arrives on time every month.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">JK</span>
+            <span><cite class="tc-card__name">Joseph K.</cite><span class="tc-card__role">Retired Bank Officer, Ernakulam</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:40vw; --y:-4vh; --zn:-1000">
+          <blockquote class="tc-card__text"><p>We started a SIP for our daughter's education when she was two. The yearly reviews keep us on track, and for the first time we feel ready for her college fees.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">DR</span>
+            <span><cite class="tc-card__name">Deepa R.</cite><span class="tc-card__role">Software Engineer, Kakkanad</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-40vw; --y:2vh; --zn:-650">
+          <blockquote class="tc-card__text"><p>I was nervous about mutual funds. They explained the risks honestly, matched each fund to a goal, and never pushed me to invest more than I was comfortable with.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">AP</span>
+            <span><cite class="tc-card__name">Arjun P.</cite><span class="tc-card__role">Doctor, Tripunithura</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:34vw; --y:20vh; --zn:-350">
+          <blockquote class="tc-card__text"><p>Invest 4U insures our shop, stock and staff. When our warehouse had water damage, they guided us through the claim step by step.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">SN</span>
+            <span><cite class="tc-card__name">Suresh N.</cite><span class="tc-card__role">Business Owner, Kakkanad</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-27vw; --y:28vh; --zn:-500">
+          <blockquote class="tc-card__text"><p>Very patient with all my questions. I finally understand what each of my policies actually covers.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">MV</span>
+            <span><cite class="tc-card__name">Meera V.</cite><span class="tc-card__role">Homemaker, Maradu</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:2vw; --y:33vh; --zn:-900">
+          <blockquote class="tc-card__text"><p>Their doorstep service made everything easy for my parents. They never had to visit an office.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">RT</span>
+            <span><cite class="tc-card__name">Rahul T.</cite><span class="tc-card__role">IT Professional, Infopark</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:28vw; --y:34vh; --zn:-600">
+          <blockquote class="tc-card__text"><p>Group health cover for our 40 employees was set up in a week, and staff claims are handled smoothly.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">LG</span>
+            <span><cite class="tc-card__name">Latha G.</cite><span class="tc-card__role">HR Manager, Kakkanad</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-20vw; --y:-22vh; --zn:-1400">
+          <blockquote class="tc-card__text"><p>The free checkup showed we were under-insured. Fixing it took just one meeting.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">VP</span>
+            <span><cite class="tc-card__name">Vinod &amp; Priya</cite><span class="tc-card__role">Palarivattom</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:27vw; --y:-17vh; --zn:-1500">
+          <blockquote class="tc-card__text"><p>Honest advice. They told me not to buy a policy I didn't need.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">TJ</span>
+            <span><cite class="tc-card__name">Thomas J.</cite><span class="tc-card__role">Chartered Accountant, Ernakulam</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-44vw; --y:-34vh; --zn:-1200">
+          <blockquote class="tc-card__text"><p>Tax saving used to be a March rush. Now it's planned from April and I actually know where my money goes.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">NK</span>
+            <span><cite class="tc-card__name">Nisha K.</cite><span class="tc-card__role">Bank Officer, Tripunithura</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:44vw; --y:-30vh; --zn:-1300">
+          <blockquote class="tc-card__text"><p>They helped my son start his first SIP with his first salary. The best habit we could have given him.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">MA</span>
+            <span><cite class="tc-card__name">Mary A.</cite><span class="tc-card__role">Retired Teacher, Kadavanthra</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-44vw; --y:24vh; --zn:-1100">
+          <blockquote class="tc-card__text"><p>Renewal reminders always arrive well in time, so not one of our policies has ever lapsed.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">GV</span>
+            <span><cite class="tc-card__name">Gopakumar V.</cite><span class="tc-card__role">Pensioner, Tripunithura</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:15vw; --y:40vh; --zn:-1250">
+          <blockquote class="tc-card__text"><p>They compared health plans from three insurers and explained the fine print on room-rent limits before I chose.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">SM</span>
+            <span><cite class="tc-card__name">Sreeja M.</cite><span class="tc-card__role">Nurse, Edappally</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:-15vw; --y:38vh; --zn:-700">
+          <blockquote class="tc-card__text"><p>Working abroad, I needed someone I could trust back home. They handle everything and keep me updated on WhatsApp.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">AN</span>
+            <span><cite class="tc-card__name">Ajith N.</cite><span class="tc-card__role">Engineer, Dubai (from Kakkanad)</span></span>
+          </footer>
+        </article>
+        <!-- TODO: replace with real client testimonial (with the client's written consent) -->
+        <article class="tc-card" style="--x:46vw; --y:32vh; --zn:-1400">
+          <blockquote class="tc-card__text"><p>Clear, jargon-free answers every time I call. It feels like talking to family.</p></blockquote>
+          <footer class="tc-card__author">
+            <span class="tc-card__avatar" aria-hidden="true">FR</span>
+            <span><cite class="tc-card__name">Fathima R.</cite><span class="tc-card__role">Pharmacist, Aluva</span></span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11. Awards & Recognition ============
+       TODO: replace each image and fill in the award name, year and awarding body. -->
+  <section class="section bg-alt" aria-labelledby="awards-title">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">Awards &amp; Recognition</span>
+        <h2 id="awards-title">Recognised for Service and Performance</h2>
+      </div>
+      <!-- Awards from the client's current site (invest4u.in/about); captions read from the award posters. TODO: client to confirm the year of the Ernakulam Division award -->
+      <div class="grid grid--3 awards-grid" data-lightbox-group>
+        <figure class="award" data-aos="fade-up">
+          <button class="award__btn" type="button" aria-label="View larger: Best Professional Excellence Award"><img src="assets/images/awards/mdrt-singapore-2023.webp" alt="K.N. Krishnankutty receiving the Best Professional Excellence Award at the MDRT Global Conference in Singapore, 27 August 2023" width="797" height="1200" loading="lazy"></button>
+          <figcaption><span class="award__name">Best Professional Excellence Award</span><span class="award__meta">2023 · MDRT Global Conference, Singapore</span></figcaption>
+        </figure>
+        <figure class="award" data-aos="fade-up" data-aos-delay="100">
+          <button class="award__btn" type="button" aria-label="View larger: Brilliant Performance: first to complete Corporate Club norms"><img src="assets/images/awards/lic-ernakulam-corporate-club.webp" alt="LIC Ernakulam Division poster congratulating K.N. Krishnankutty as the first to complete Corporate Club norms in the division" width="720" height="960" loading="lazy"></button>
+          <figcaption><span class="award__name">Brilliant Performance: first to complete Corporate Club norms</span><span class="award__meta">LIC of India · Ernakulam Division</span></figcaption>
+        </figure>
+        <figure class="award" data-aos="fade-up" data-aos-delay="200">
+          <button class="award__btn" type="button" aria-label="View larger: No. 1 Performer in Kerala"><img src="assets/images/awards/lic-no1-performer-kerala.webp" alt="K.N. Krishnankutty, Court of the Table member and 5-times MDRT qualifier, honoured by LIC Zonal Manager Sri. Kathiresan as the No. 1 performer in Kerala" width="899" height="1200" loading="lazy"></button>
+          <figcaption><span class="award__name">No. 1 Performer in Kerala</span><span class="award__meta">2020 · LIC of India, honoured by the Zonal Manager</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12. Contact ============ -->
+  <section class="section bg-alt" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow">Contact Us</span>
+        <h2 id="contact-title">Let's Plan Your Financial Future Together</h2>
+        <p>Call, WhatsApp or send us a message and an advisor will get back to you within one working day.</p>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact-info" data-aos="fade-right">
+          <div class="info-card">
+            <span class="icon-circle">{{icon:location}}</span>
+            <div>
+              <h3>Head Office, Tripunithura</h3>
+              <address>Vaikkom Road, Kannankulangara, Tripunithura, Kochi, Kerala 682301</address>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="icon-circle">{{icon:location}}</span>
+            <div>
+              <h3>Branch, Infopark</h3>
+              <address>Ground Floor, Thapasya Building, Infopark, Kakkanad, Kochi</address>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="icon-circle">{{icon:phone}}</span>
+            <div>
+              <h3>Call us</h3>
+              <p><a href="tel:+919747546614">+91 97475 46614</a> (primary)<br><a href="tel:+919847071373">+91 98470 71373</a><br><a href="tel:+919847046614">+91 98470 46614</a></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="icon-circle">{{icon:envelope}}</span>
+            <div>
+              <h3>Email us</h3>
+              <p><a href="mailto:info@invest4u.in">info@invest4u.in</a> (enquiries)<br><a href="mailto:service@invest4u.in">service@invest4u.in</a> (support)</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="icon-circle">{{icon:clock}}</span>
+            <div>
+              <h3>Office hours</h3>
+              <p>Monday to Saturday, 9:00 AM to 6:30 PM<br>Closed on Sunday</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form" data-aos="fade-left">
+          <h3>Send us a message</h3>
+          <!-- TODO: set the Web3Forms access key in data-access-key (https://web3forms.com). -->
+          <form class="form" data-contact-form data-access-key="YOUR_WEB3FORMS_ACCESS_KEY" action="https://api.web3forms.com/submit" method="post" novalidate>
+            <input type="hidden" name="subject" value="New enquiry from invest4u.in">
+            <input type="hidden" name="from_name" value="Invest 4U website">
+            <!-- Honeypot: real visitors never see or fill this -->
+            <input class="hp-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="cf-name">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err">
+                <span class="field-error" id="cf-name-err">Please enter your full name.</span>
+              </div>
+              <div class="field">
+                <label for="cf-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="cf-phone-err" placeholder="10-digit mobile number">
+                <span class="field-error" id="cf-phone-err">Please enter a valid 10-digit Indian mobile number.</span>
+              </div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-err">
+                <span class="field-error" id="cf-email-err">Please enter a valid email address.</span>
+              </div>
+              <div class="field">
+                <label for="cf-service">Service interested in</label>
+                <select class="select" id="cf-service" name="service">
+                  <option value="">Select a service</option>
+                  <option value="checkup">Free Financial Checkup</option>
+                  <option value="life-insurance">Life Insurance</option>
+                  <option value="health-insurance">Health Insurance</option>
+                  <option value="corporate-insurance">Corporate Insurance</option>
+                  <option value="mutual-funds">Mutual Funds</option>
+                  <option value="retirement-planning">Retirement Planning</option>
+                  <option value="child-education">Child Education Planning</option>
+                  <option value="tax-planning">Tax Planning</option>
+                  <option value="wealth">Wealth Creation &amp; Estate Planning</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cf-time">Preferred contact time</label>
+              <select class="select" id="cf-time" name="preferred_time">
+                <option value="">Any time</option>
+                <option>Morning (9 AM to 12 PM)</option>
+                <option>Afternoon (12 PM to 3 PM)</option>
+                <option>Evening (3 PM to 6:30 PM)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cf-message">Message</label>
+              <textarea class="textarea" id="cf-message" name="message" placeholder="Tell us a little about what you need"></textarea>
+            </div>
+            <div class="field">
+              <label class="check" for="cf-consent">
+                <input id="cf-consent" name="consent" type="checkbox" value="yes" required aria-describedby="cf-consent-err">
+                <span>I agree to the <a href="privacy-policy.html">Privacy Policy</a> and consent to be contacted. <span class="req" aria-hidden="true">*</span></span>
+              </label>
+              <span class="field-error" id="cf-consent-err">Please tick this box so we can contact you.</span>
+            </div>
+            <div class="form-status" role="status" aria-live="polite"></div>
+            <button class="btn btn--lg" type="submit">Send Message {{icon:arrow-right|icon--arrow}}</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="map" data-aos="fade-up">
+        <!-- TODO: confirm the map pin for the Tripunithura head office -->
+        <iframe src="https://www.google.com/maps?q=Kannankulangara%2C+Tripunithura%2C+Kochi%2C+Kerala+682301&amp;output=embed" title="Map showing the Invest 4U head office in Tripunithura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Awards lightbox -->
+<dialog class="lightbox" aria-label="Award image">
+  <img src="data:," alt="">
+  <p class="lightbox__caption"><span class="award__name"></span><span class="award__meta"></span></p>
+  <button class="lightbox__close" type="button" aria-label="Close">{{icon:xmark}}</button>
+  <button class="lightbox__prev" type="button" aria-label="Previous award">{{icon:chevron-left}}</button>
+  <button class="lightbox__next" type="button" aria-label="Next award">{{icon:chevron-right}}</button>
+</dialog>

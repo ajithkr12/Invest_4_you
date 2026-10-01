@@ -1,0 +1,16 @@
+<!--
+  Home page preloader. Paste directly after <body>, before the skip link.
+  main.js (initLoader) drives the progress bar from real loading: at least 1.2s, never more than 4s.
+  Full version once per browser session; repeat visits and reduced motion get a quick fade.
+  Without JS it is hidden (noscript style); if main.js fails, a CSS fallback fades it out after 5s.
+-->
+<noscript><style>.page-loader { display: none !important; }</style></noscript>
+<div class="page-loader" role="status" aria-live="polite">
+  <span class="sr-only">Loading Invest 4U</span>
+  <div class="page-loader__inner" aria-hidden="true">
+    <img src="assets/images/logo-white.png" alt="" width="309" height="111">
+    <span class="page-loader__bar"><span></span></span>
+    <span class="page-loader__pct">0%</span>
+    <span class="page-loader__tag">Financial Architects · Since 1992</span>
+  </div>
+</div>

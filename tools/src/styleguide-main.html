@@ -1,0 +1,350 @@
+<main id="main">
+  <section class="shell-banner">
+    <div class="container">
+      <span class="eyebrow eyebrow--light">Financial Architects</span>
+      <h1>Style Guide</h1>
+      <p>Design tokens, components and the shared header and footer. Internal page, not linked from the site.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sg-colours">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <span class="eyebrow">Tokens</span>
+        <h2 id="sg-colours">Colour palette</h2>
+        <p>Navy and teal are sampled from the logo. Use the darker teal for text and links on white.</p>
+      </div>
+      <ul class="swatches">
+        <li class="swatch"><span style="background:#013364"></span><code>--color-primary #013364</code></li>
+        <li class="swatch"><span style="background:#0A2540"></span><code>--color-primary-dark #0A2540</code></li>
+        <li class="swatch"><span style="background:#1B4F8A"></span><code>--color-primary-light #1B4F8A</code></li>
+        <li class="swatch"><span style="background:#00ACA8"></span><code>--color-accent #00ACA8</code></li>
+        <li class="swatch"><span style="background:#007A77"></span><code>--color-accent-dark #007A77</code></li>
+        <li class="swatch"><span style="background:#E6F7F6"></span><code>--color-accent-light #E6F7F6</code></li>
+        <li class="swatch"><span style="background:#F4F8FB"></span><code>--color-bg-alt #F4F8FB</code></li>
+        <li class="swatch"><span style="background:#334155"></span><code>--color-text #334155</code></li>
+        <li class="swatch"><span style="background:#64748B"></span><code>--color-muted #64748B</code></li>
+        <li class="swatch"><span style="background:#DCE6EE"></span><code>--color-border #DCE6EE</code></li>
+        <li class="swatch"><span style="background:linear-gradient(135deg,#013364,#00ACA8)"></span><code>--gradient-brand</code></li>
+        <li class="swatch"><span style="background:linear-gradient(180deg,#013364,#0A2540)"></span><code>--gradient-dark</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-alt" aria-labelledby="sg-type">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Typography</span>
+        <h2 id="sg-type">Switzer, headings and body</h2>
+        <h3>Heading level 3</h3>
+        <h4>Heading level 4</h4>
+        <p>Body text is Inter at 16px with a 1.7 line height. <a href="#sg-buttons">Inline links</a> use the darker teal so they pass AA contrast on white.</p>
+        <p class="text-muted">Muted text for supporting copy and card descriptions.</p>
+        <p><span class="badge">Badge</span> <span class="placeholder-note">TODO: placeholder marker</span></p>
+      </div>
+      <div class="bracket">
+        <div class="media-frame"><img src="assets/images/about-1.webp" alt="Placeholder image inside the bracket frame" width="800" height="600" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sg-buttons">
+    <div class="container">
+      <div class="section-head section-head--left">
+        <span class="eyebrow">Components</span>
+        <h2 id="sg-buttons">Buttons</h2>
+        <p>Primary buttons use navy text on teal. White text on teal fails contrast, so it's never used.</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn" href="#sg-buttons">Primary</a>
+        <a class="btn btn--secondary" href="#sg-buttons">Secondary</a>
+        <a class="btn btn--outline" href="#sg-buttons">Outline</a>
+        <a class="btn btn--sm" href="#sg-buttons">Small</a>
+        <a class="btn btn--lg" href="#sg-buttons">Large with arrow <svg class="icon icon--arrow" viewBox="0 0 448 512" aria-hidden="true"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sm bg-dark" aria-labelledby="sg-dark">
+    <div class="container">
+      <h2 id="sg-dark">On dark backgrounds</h2>
+      <p>Teal button with navy text, or a white outline button.</p>
+      <div class="btn-group">
+        <a class="btn" href="#sg-dark">Primary on dark</a>
+        <a class="btn btn--outline-white" href="#sg-dark">White outline</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sm bg-brand" aria-labelledby="sg-brand">
+    <div class="container">
+      <span class="eyebrow">Brand gradient</span>
+      <h2 id="sg-brand">Not sure where to start?</h2>
+      <div class="btn-group">
+        <a class="btn" href="#sg-brand">Book your free checkup</a>
+        <a class="btn btn--outline-white" href="#sg-brand">Call us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt" aria-labelledby="sg-cards">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Cards</span>
+        <h2 id="sg-cards">Cards and the tick list</h2>
+        <p>Cards lift on hover, the top border turns teal and the icon circle fills.</p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card">
+          <span class="icon-circle"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg></span>
+          <h3>Life Insurance</h3>
+          <p>Protect your family's income and future goals with the right cover.</p>
+          <a class="link-arrow" href="#sg-cards">Learn more <svg class="icon" viewBox="0 0 448 512" aria-hidden="true"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
+        </article>
+        <article class="card">
+          <h3>Tick list</h3>
+          <ul class="tick-list">
+            <li>Personalised planning</li>
+            <li>Transparent advice</li>
+            <li>Lifelong service</li>
+            <li>Claim support</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Notices</h3>
+          <div class="notice"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg><p>Mutual fund investments are subject to market risks.</p></div>
+          <div class="notice notice--warning mt-6"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg><p>We never ask for OTPs.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt" aria-labelledby="sg-form">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <span class="eyebrow">Forms</span>
+        <h2 id="sg-form">Form fields</h2>
+        <p>Teal focus rings; the second field shows the error state.</p>
+      </div>
+      <form class="form card" action="#" novalidate>
+        <div class="form-row form-row--2">
+          <div class="field">
+            <label for="sg-name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="sg-name" name="name" type="text" autocomplete="name" required placeholder="Your full name">
+          </div>
+          <div class="field is-invalid">
+            <label for="sg-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="sg-phone" name="phone" type="tel" autocomplete="tel" required aria-invalid="true" aria-describedby="sg-phone-err" value="12">
+            <span class="field-error" id="sg-phone-err">Enter a valid 10-digit mobile number.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="sg-service">Service interested in</label>
+          <select class="select" id="sg-service" name="service">
+            <option value="">Select a service</option>
+            <option>Life Insurance</option>
+            <option>Health Insurance</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sg-msg">Message</label>
+          <textarea class="textarea" id="sg-msg" name="message"></textarea>
+        </div>
+        <label class="check"><input type="checkbox" name="consent"> I agree to the Privacy Policy and consent to be contacted.</label>
+        <div class="form-status is-success" role="status">Thank you. We'll call you within one working day.</div>
+        <button class="btn" type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sg-faq">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <span class="eyebrow">Accordion</span>
+        <h2 id="sg-faq">Frequently asked questions</h2>
+        <p>Add <code>data-accordion="single"</code> to keep one answer open at a time. Without JavaScript every answer is shown.</p>
+      </div>
+      <div class="accordion" data-accordion="single">
+        <div class="accordion__item">
+          <h3 class="accordion__heading">
+            <button class="accordion__trigger" type="button" id="sg-faq-1-btn" aria-expanded="true" aria-controls="sg-faq-1">
+              Is the financial checkup really free?
+              {{icon:chevron-down}}
+            </button>
+          </h3>
+          <div class="accordion__panel" id="sg-faq-1" role="region" aria-labelledby="sg-faq-1-btn">
+            <div class="accordion__panel-inner"><p>Yes. There's no fee and no obligation to buy anything.</p></div>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <h3 class="accordion__heading">
+            <button class="accordion__trigger" type="button" id="sg-faq-2-btn" aria-expanded="false" aria-controls="sg-faq-2">
+              Which documents should I bring?
+              {{icon:chevron-down}}
+            </button>
+          </h3>
+          <div class="accordion__panel" id="sg-faq-2" role="region" aria-labelledby="sg-faq-2-btn">
+            <div class="accordion__panel-inner"><p>Bring your existing policy documents and recent mutual fund statements if you have them. <a href="contact.html">Contact us</a> if you're not sure.</p></div>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <h3 class="accordion__heading">
+            <button class="accordion__trigger" type="button" id="sg-faq-3-btn" aria-expanded="false" aria-controls="sg-faq-3">
+              Can you visit me at home?
+              {{icon:chevron-down}}
+            </button>
+          </h3>
+          <div class="accordion__panel" id="sg-faq-3" role="region" aria-labelledby="sg-faq-3-btn">
+            <div class="accordion__panel-inner"><p>Yes. We offer doorstep service across Kochi, at a time that suits you.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt" aria-labelledby="sg-copy">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <span class="eyebrow">Copy buttons</span>
+        <h2 id="sg-copy">Bank details with copy buttons</h2>
+        <p>Used on the Pay Online page. The values here are dummies.</p>
+      </div>
+      <div class="card">
+        <dl class="copy-list">
+          <div class="copy-row">
+            <dt>Account name</dt>
+            <dd><span class="copy-row__value" id="sg-acc-name">K &amp; VK Invest 4U Advisory Services LLP</span> <button class="copy-btn" type="button" data-copy-target="#sg-acc-name" aria-label="Copy account name">{{icon:copy}}<span class="copy-btn__label">Copy</span></button></dd>
+          </div>
+          <div class="copy-row">
+            <dt>Account number</dt>
+            <dd><span class="copy-row__value">000000000000</span> <button class="copy-btn" type="button" data-copy="000000000000" aria-label="Copy account number">{{icon:copy}}<span class="copy-btn__label">Copy</span></button></dd>
+          </div>
+          <div class="copy-row">
+            <dt>IFSC</dt>
+            <dd><span class="copy-row__value">XXXX0000000</span> <button class="copy-btn" type="button" data-copy="XXXX0000000" aria-label="Copy IFSC code">{{icon:copy}}<span class="copy-btn__label">Copy</span></button></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sg-multistep">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <span class="eyebrow">Multi-step form</span>
+        <h2 id="sg-multistep">Free checkup request</h2>
+        <p>Each step is validated before moving on. The same submit code as the contact form handles sending.</p>
+      </div>
+      <form class="form contact-form" data-contact-form data-multistep data-access-key="YOUR_WEB3FORMS_ACCESS_KEY"
+            data-success="Thank you! We'll call you within one working day to book your free checkup."
+            action="https://api.web3forms.com/submit" method="post" novalidate>
+        <input type="hidden" name="subject" value="Free financial checkup request">
+        <input class="hp-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="progress">
+          <p class="progress__label" id="sg-ms-label">Step <span data-step-current>1</span> of 3: <span data-step-title>About you</span></p>
+          <div class="progress__track" role="progressbar" aria-labelledby="sg-ms-label" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"><span class="progress__bar"></span></div>
+          <ol class="progress__steps" aria-hidden="true">
+            <li class="is-active">About you</li>
+            <li>Your goals</li>
+            <li>Contact details</li>
+          </ol>
+        </div>
+
+        <fieldset class="form-step" data-title="About you">
+          <legend>About you</legend>
+          <div class="field">
+            <label for="sg-ms-name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="sg-ms-name" name="name" type="text" autocomplete="name" required aria-describedby="sg-ms-name-err">
+            <span class="field-error" id="sg-ms-name-err">Please enter your full name.</span>
+          </div>
+          <div class="field">
+            <fieldset class="choices" aria-describedby="sg-ms-age-err">
+              <legend>Age group <span class="req" aria-hidden="true">*</span></legend>
+              <label class="choice"><input type="radio" name="age_group" value="Under 30" required><span>Under 30</span></label>
+              <label class="choice"><input type="radio" name="age_group" value="30 to 45" required><span>30 to 45</span></label>
+              <label class="choice"><input type="radio" name="age_group" value="46 to 60" required><span>46 to 60</span></label>
+              <label class="choice"><input type="radio" name="age_group" value="Over 60" required><span>Over 60</span></label>
+            </fieldset>
+            <span class="field-error" id="sg-ms-age-err">Please choose your age group.</span>
+          </div>
+          <div class="form-nav">
+            <button class="btn" type="button" data-step-next>Next {{icon:arrow-right|icon--arrow}}</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step" data-title="Your goals">
+          <legend>Your goals</legend>
+          <div class="field">
+            <fieldset class="choices">
+              <legend>What would you like to plan for?</legend>
+              <label class="choice"><input type="checkbox" name="goals[]" value="Family protection"><span>Family protection</span></label>
+              <label class="choice"><input type="checkbox" name="goals[]" value="Health cover"><span>Health cover</span></label>
+              <label class="choice"><input type="checkbox" name="goals[]" value="Retirement"><span>Retirement</span></label>
+              <label class="choice"><input type="checkbox" name="goals[]" value="Child education"><span>Child education</span></label>
+              <label class="choice"><input type="checkbox" name="goals[]" value="Saving tax"><span>Saving tax</span></label>
+            </fieldset>
+          </div>
+          <div class="field">
+            <label for="sg-ms-cover">Do you have life or health insurance today?</label>
+            <select class="select" id="sg-ms-cover" name="existing_cover">
+              <option value="">Choose one</option>
+              <option>Yes, both</option>
+              <option>Life insurance only</option>
+              <option>Health insurance only</option>
+              <option>Neither</option>
+            </select>
+          </div>
+          <div class="form-nav">
+            <button class="btn btn--outline" type="button" data-step-prev>Back</button>
+            <button class="btn" type="button" data-step-next>Next {{icon:arrow-right|icon--arrow}}</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step" data-title="Contact details">
+          <legend>Contact details</legend>
+          <div class="form-row form-row--2">
+            <div class="field">
+              <label for="sg-ms-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="sg-ms-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="sg-ms-phone-err">
+              <span class="field-error" id="sg-ms-phone-err">Please enter a valid 10-digit Indian mobile number.</span>
+            </div>
+            <div class="field">
+              <label for="sg-ms-email">Email</label>
+              <input class="input" id="sg-ms-email" name="email" type="email" autocomplete="email" aria-describedby="sg-ms-email-err">
+              <span class="field-error" id="sg-ms-email-err">Please enter a valid email address.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="check" for="sg-ms-consent">
+              <input id="sg-ms-consent" name="consent" type="checkbox" value="yes" required aria-describedby="sg-ms-consent-err">
+              <span>I agree to the <a href="privacy-policy.html">Privacy Policy</a> and consent to be contacted. <span class="req" aria-hidden="true">*</span></span>
+            </label>
+            <span class="field-error" id="sg-ms-consent-err">Please tick this box so we can contact you.</span>
+          </div>
+          <div class="form-nav">
+            <button class="btn btn--outline" type="button" data-step-prev>Back</button>
+            <button class="btn" type="submit">Request Free Checkup</button>
+          </div>
+        </fieldset>
+
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section bg-alt" aria-labelledby="sg-misc">
+    <div class="container">
+      <h2 id="sg-misc">Breadcrumb on navy</h2>
+      <div class="bg-navy" style="padding:1rem 1.5rem;border-radius:12px">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><span aria-current="page">Life Insurance</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </section>
+</main>
