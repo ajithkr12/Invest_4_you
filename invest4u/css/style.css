@@ -141,7 +141,8 @@ body {
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: hidden;   /* fallback for very old browsers */
+  overflow-x: clip;     /* clip, unlike hidden, never makes <body> a scroll container, so position: sticky keeps working (Safari) */
 }
 body.no-scroll { overflow: hidden; }
 
@@ -1776,6 +1777,7 @@ html.loader-lock { overflow: hidden; }
 .tc__sticky {
   position: sticky;
   top: 0;
+  transform: translateY(var(--pin-fix, 0px));   /* set by main.js only if the browser ever fails to pin */
   height: 100vh;
   height: 100svh;
   overflow: hidden;

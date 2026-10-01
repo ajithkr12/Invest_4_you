@@ -351,6 +351,7 @@
   function initTestimonialCloud() {
     var section = $('.tc');
     if (!section) return;
+    var sticky = $('.tc__sticky', section);
     var wideMQ = window.matchMedia('(min-width: 768px)');
     var ticking = false;
 
@@ -361,6 +362,15 @@
       var total = section.offsetHeight - window.innerHeight;
       var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
       section.style.setProperty('--p', p.toFixed(4));
+      // Safety net: if the browser stops honouring position: sticky (seen in Safari), hold the panel in place
+      if (sticky) {
+        sticky.style.removeProperty('--pin-fix');
+        var off = sticky.getBoundingClientRect().top;
+        // Where the panel should be: in normal flow before the pin (section top still below the viewport top),
+        // at 0 while pinned, then moving up with the section as it leaves
+        var want = r.top > 0 ? r.top : Math.min(0, r.bottom - window.innerHeight);
+        if (Math.abs(off - want) > 1) sticky.style.setProperty('--pin-fix', (want - off) + 'px');
+      }
     }
     function request() {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
