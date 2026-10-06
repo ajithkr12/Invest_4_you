@@ -44,7 +44,7 @@ Legend: `[ ]` todo · `[x]` done · `[~]` in progress · `[!]` blocked on client
 - [x] Mobile hamburger → slide-in menu, animated icon, focus trap, Esc closes
 - [x] Sticky header: transparent over hero → white + shadow + shrink on scroll
 - [x] Footer 4 columns: white logo + about + "Since 1992" + "Financial Architects"; Quick Links; Services; both offices
-- [x] Social icons (FB, IG, YouTube, WhatsApp `wa.me/919747546614`, LinkedIn), `target="_blank" rel="noopener"`, `aria-label`s
+- [x] Social icons (FB, IG, YouTube, WhatsApp `wa.me/919847046614`, LinkedIn), `target="_blank" rel="noopener"`, `aria-label`s
 - [x] Regulatory disclosure strip (IRDAI/LIC code, AMFI ARN/EUIN, LLPIN, MF risk line)
 - [x] Bottom bar: © JS year + Privacy · Terms · Disclaimer · Grievance
 - [x] Floating WhatsApp button (pulse), back-to-top, page loader (≤ 1s)

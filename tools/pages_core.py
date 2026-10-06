@@ -9,7 +9,7 @@ STYLEGUIDE = open(SRC + 'styleguide-main.html').read()
 CHECKUP_FORM = _slice(STYLEGUIDE, '<form class="form contact-form" data-contact-form data-multistep', '</form>').replace('sg-ms-', 'ck-')
 CHECKUP_STEPS = _slice(INDEX_MAIN, '<ol class="steps" data-inview>', '</ol>')
 
-WA = f'<a class="btn" href="https://wa.me/919747546614" target="_blank" rel="noopener">{I("whatsapp")} WhatsApp us<span class="sr-only"> (opens in a new tab)</span></a>'
+WA = f'<a class="btn" href="https://wa.me/919847046614" target="_blank" rel="noopener">{I("whatsapp")} WhatsApp us<span class="sr-only"> (opens in a new tab)</span></a>'
 
 
 def offices(heading_level=3):
@@ -17,14 +17,15 @@ def offices(heading_level=3):
     return f'''      <div class="grid grid--2">
         <article class="card office-card" data-aos="fade-up">
           <!-- TODO: confirm the map pin for the head office -->
-          <iframe src="https://www.google.com/maps?q=Kannankulangara%2C+Tripunithura%2C+Kochi%2C+Kerala+682301&amp;output=embed" title="Map of the Invest 4U head office in Tripunithura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <!-- <iframe src="https://www.google.com/maps?q=Kannankulangara%2C+Tripunithura%2C+Kochi%2C+Kerala+682301&amp;output=embed" title="Map of the Invest 4U head office in Tripunithura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+          <iframe title="Map of the Invest 4U head office in Tripunithura" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0320032829054!2d76.3543478!3d9.9312927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873b28c934e8f%3A0x9017ffa43418dfcd!2sInvest%204u%20Solutions!5e0!3m2!1sen!2sin!4v1791266775757!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           <div class="office-card__body">
             <span class="badge">Head office</span>
             <{h} class="mt-6">Tripunithura</{h}>
             <address>Vaikkom Road, Kannankulangara, Tripunithura, Kochi, Kerala 682301</address>
             <p class="mt-6">Mon to Sat, 9:00 AM to 6:30 PM · Closed Sunday</p>
             <div class="btn-group">
-              <a class="btn btn--sm" href="tel:+919747546614">{I("phone")} Call +91 97475 46614</a>
+              <a class="btn btn--sm" href="tel:+919847046614">{I("phone")} Call +91 98470 46614</a>
               <a class="btn btn--sm btn--outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kannankulangara%2C+Tripunithura%2C+Kochi" target="_blank" rel="noopener">Get directions<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </div>
@@ -38,7 +39,7 @@ def offices(heading_level=3):
             <address>Ground Floor, Thapasya Building, Infopark, Kakkanad, Kochi</address>
             <p class="mt-6">Mon to Sat, 9:00 AM to 6:30 PM · Closed Sunday</p>
             <div class="btn-group">
-              <a class="btn btn--sm" href="tel:+919847071373">{I("phone")} Call +91 98470 71373</a>
+              <a class="btn btn--sm" href="tel:+919847056614">{I("phone")} Call +91 98470 56614</a>
               <a class="btn btn--sm btn--outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Thapasya+Building%2C+Infopark%2C+Kakkanad%2C+Kochi" target="_blank" rel="noopener">Get directions<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </div>
@@ -71,11 +72,47 @@ def about():
           <span class="icon-circle">{I(ic)}</span>
           <div><h3>{t}</h3><p>{d}</p></div>
         </div>''' for i, (ic, t, d) in enumerate(values))
-    team = '\n'.join(f'''        <article class="team-card" data-aos="fade-up"{f' data-aos-delay="{(i - 1) * 100}"' if i > 1 else ''}>
-          <div class="team-card__photo bracket"><img src="assets/images/team/team-{i}.webp" alt="Team member {i} (placeholder photo)" width="600" height="700" loading="lazy"></div>
-          <h3>[Team member name]</h3>
-          <p>[Role]</p>
-        </article>''' for i in range(1, 5))
+    # Team: cards show photo, name and designation; clicking opens a popup (initTeamProfiles in main.js).
+    # Without JS, each card's details are shown below it.
+    TEAM = [
+        dict(photo='assets/images/founder.webp', w=640, h=794, name='K.N. Krishnankutty', role='Founder &amp; Managing Director',
+             alt='K.N. Krishnankutty, Founder and Managing Director of Invest 4U',
+             bio='K.N. Krishnankutty founded Invest 4U in Tripunithura in 1992 and has spent more than three decades helping families and businesses protect what they have and plan for what they want. A long-standing LIC of India adviser, he built the firm on one promise: treat every client\'s money as carefully as his own.',
+             expertise=['Life insurance and family protection', 'Retirement and income planning', 'Corporate and key-person insurance', 'Claim support and policy servicing'],
+             achievements=['Best Professional Excellence Award, MDRT Global Conference, Singapore (2023)',
+                           'MDRT qualifier for 15 consecutive years, and Court of the Table member',
+                           'No. 1 Performer in Kerala, LIC of India (2020)',
+                           'First to complete Corporate Club norms in LIC\'s Ernakulam Division',
+                           'Galaxy Club member, LIC of India'],
+             todo='Details taken from the award posters on invest4u.in; client to confirm'),
+    ] + [
+        dict(photo=f'assets/images/team/team-{i}.webp', w=600, h=700, name='[Team member name]', role='[Designation]',
+             alt=f'Team member {i} (placeholder photo)',
+             bio='[Short biography: 2 to 3 sentences about their background and how they help clients.]',
+             expertise=['[Area of expertise]', '[Area of expertise]'],
+             achievements=['[Qualification, e.g. licensed insurance agent / AMFI-registered]', '[Professional achievement]'],
+             todo='Client to provide photo, name, designation, biography, expertise and qualifications')
+        for i in range(1, 4)]
+
+    def team_card(i, m):
+        delay = f' data-aos-delay="{i * 100}"' if i else ''
+        exp = ''.join(f'<li>{x}</li>' for x in m['expertise'])
+        ach = ''.join(f'<li>{x}</li>' for x in m['achievements'])
+        return f'''        <!-- TODO: {m["todo"]} -->
+        <article class="team-card" data-aos="fade-up"{delay}>
+          <div class="team-card__photo bracket"><img src="{m["photo"]}" alt="{m["alt"]}" width="{m["w"]}" height="{m["h"]}" loading="lazy"></div>
+          <h3 class="team-card__name"><button class="team-card__btn" type="button" aria-haspopup="dialog">{m["name"]}</button></h3>
+          <p class="team-card__role">{m["role"]}</p>
+          <span class="team-card__more" aria-hidden="true">View profile {I("arrow-right")}</span>
+          <div class="team-card__details">
+            <p class="team-card__bio">{m["bio"]}</p>
+            <h4>Area of expertise</h4>
+            <ul class="tick-list">{exp}</ul>
+            <h4>Achievements &amp; qualifications</h4>
+            <ul class="team-card__awards">{ach}</ul>
+          </div>
+        </article>'''
+    team = '\n'.join(team_card(i, m) for i, m in enumerate(TEAM))
 
     body = main(
         banner('About Invest 4U Solutions', [('About', None)], 'Guiding families and businesses in Kochi since 1992, with service that lasts a lifetime.', img='about', eyebrow='Financial Architects'),
@@ -87,7 +124,7 @@ def about():
           <img src="assets/images/about-2.webp" alt="The Invest 4U office (placeholder image)" width="800" height="900" loading="lazy">
         </div>
         <div class="about-collage__sub" data-aos="zoom-in" data-aos-delay="250">
-          <img src="assets/images/about-1.webp" alt="An advisor meeting clients (placeholder image)" width="800" height="600" loading="lazy">
+          <img src="assets/images/about-1.webp" alt="A financial planning discussion at a meeting table, with an adviser explaining options beside a laptop" width="1600" height="1067" loading="lazy">
         </div>
         <div class="about-collage__badge" data-aos="zoom-in" data-aos-delay="400"><div><strong>1992</strong>where our story began</div></div>
       </div>
@@ -106,7 +143,6 @@ def about():
       <div class="section-head" data-aos="fade-up">
         <span class="eyebrow">Our journey</span>
         <h2 id="milestones-title">Milestones since 1992</h2>
-        <p class="placeholder-note">TODO: client to confirm the years shown as [Year]</p>
       </div>
       <ol class="milestones">
 {ms}
@@ -120,12 +156,18 @@ def about():
         <div class="mv-card mv-card--mission" data-aos="fade-right">
           <span class="icon-circle">{I("bullseye")}</span>
           <h3>Our mission</h3>
-          <p>To make every family we serve financially secure, through honest advice, the right protection and service that lasts a lifetime.</p>
+          <ul class="tick-list mv-list">
+            <li>Deliver personalized financial solutions for every stage of life.</li>
+            <li>Protect families from financial uncertainty.</li>
+            <li>Build long-term wealth through disciplined planning.</li>
+            <li>Educate clients to make informed financial decisions.</li>
+            <li>Serve with integrity, transparency and lifelong commitment.</li>
+          </ul>
         </div>
         <div class="mv-card mv-card--vision" data-aos="fade-left">
           <span class="icon-circle">{I("eye")}</span>
           <h3>Our vision</h3>
-          <p>To be Kochi's most trusted financial architects: the first call a family makes when they want to protect what they have and plan for what they want.</p>
+          <p>To be a trusted financial advisory helping clients build a secure and prosperous future.</p>
         </div>
       </div>
     </div>
@@ -155,7 +197,6 @@ def about():
           <p>We have sat with families as they bought their first policy, planned their children's education and prepared for retirement, and we have stood beside them when they needed to make a claim. Those moments, when a policy we recommended years earlier finally does its job, are why we do this work.</p>
           <p>Today a new generation, many of them the children of our first clients, trusts us with their plans. Our mission is unchanged: to help every family we serve become financially secure, through honest advice and service that lasts a lifetime. Thank you for your trust.</p>
         </blockquote>
-        <p class="placeholder-note">Draft message: awaiting approval from the founder</p>
         {FOUNDER_SIGN}
       </figure>
     </div>
@@ -165,9 +206,9 @@ def about():
       <div class="section-head" data-aos="fade-up">
         <span class="eyebrow">Our team</span>
         <h2 id="team-title">The people behind Invest 4U</h2>
-        <p class="placeholder-note">TODO: add team photos, names and roles</p>
+        <p>Experienced advisers who know your family's plans, and stay with you for the long run. Select a profile to learn more.</p>
       </div>
-      <div class="grid grid--4">
+      <div class="grid grid--4 team-grid">
 {team}
       </div>
     </div>
@@ -176,7 +217,7 @@ def about():
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <span class="eyebrow">Awards &amp; Recognition</span>
-        <h2 id="awards-title">Recognised for service and performance</h2>
+        <h2 id="awards-title">Recognised for Service. Trusted for the Journey.</h2>
       </div>
       {AWARDS_GRID}
     </div>
@@ -200,7 +241,20 @@ def about():
     </div>
   </section>''',
         cta_band(),
-        extra_after=LIGHTBOX,
+        extra_after=LIGHTBOX + '''
+
+<!-- Team profile popup (filled from the clicked card by initTeamProfiles in main.js) -->
+<dialog class="team-modal" aria-labelledby="team-modal-name">
+  <button class="team-modal__close" type="button" aria-label="Close profile">''' + I('xmark') + '''</button>
+  <div class="team-modal__grid">
+    <div class="team-modal__photo"><img src="data:," alt=""></div>
+    <div class="team-modal__body">
+      <h2 class="team-modal__name" id="team-modal-name"></h2>
+      <p class="team-modal__role"></p>
+      <div class="team-modal__details"></div>
+    </div>
+  </div>
+</dialog>''',
     )
     page('about.html', 'About Us', 'Invest 4U Solutions has guided families in Kochi since 1992. Meet our founder K.N. Krishnankutty, our team, our values and our two offices.',
          body, current='about.html', banner_img='about')
@@ -208,7 +262,7 @@ def about():
 
 # ---------------------------------------------------------------- Contact
 CONTACT_FAQS = [
-    ('How quickly will you reply?', '<p>We reply to messages within one working day. For anything urgent, call +91 97475 46614 during office hours.</p>'),
+    ('How quickly will you reply?', '<p>We reply to messages within one working day. For anything urgent, call +91 98470 46614 during office hours.</p>'),
     ('Can you visit me at home or at work?', '<p>Yes. We offer doorstep service across Kochi. Mention a convenient time in your message or when you call.</p>'),
     ('Do you charge for a consultation?', '<p>No. Your first consultation and our <a href="financial-checkup.html">financial checkup</a> are free, with no obligation.</p>'),
     ('What should I bring to a meeting?', '<p>Any existing policy documents, mutual fund statements and a rough idea of your monthly expenses and goals. Don\'t worry if you don\'t have everything.</p>'),
@@ -226,7 +280,7 @@ def contact():
         <p>We're available Monday to Saturday, 9:00 AM to 6:30 PM.</p>
       </div>
       <div class="btn-group">
-        <a class="btn btn--lg" href="tel:+919747546614">{I("phone")} Call +91 97475 46614</a>
+        <a class="btn btn--lg" href="tel:+919847046614">{I("phone")} Call +91 98470 46614</a>
         {WA.replace('class="btn"', 'class="btn btn--lg btn--outline-white"')}
       </div>
     </div>
@@ -253,7 +307,7 @@ def contact():
         faq(CONTACT_FAQS, 'faq', heading='Questions before you get in touch'),
         cta_band(),
     )
-    page('contact.html', 'Contact Us', 'Contact Invest 4U Solutions in Tripunithura and Infopark, Kochi. Call +91 97475 46614, WhatsApp, email info@invest4u.in or send us a message.',
+    page('contact.html', 'Contact Us', 'Contact Invest 4U Solutions in Tripunithura and Infopark, Kochi. Call +91 98470 46614, WhatsApp, email info@invest4u.in or send us a message.',
          body, current='contact.html', banner_img='contact', jsonld=ORG)
 
 
@@ -342,7 +396,7 @@ def downloads():
           <a class="btn btn--sm" href="{url}" target="_blank" rel="noopener">Official forms {I("arrow-up-right-from-square")}<span class="sr-only"> for {name} (opens in a new tab)</span></a>
         </article>''' for i, (slug, name, url, forms) in enumerate(DOWNLOADS))
     body = main(
-        banner('Downloads', [('Downloads', None)], 'Claim, service and transaction forms from our insurance and mutual fund partners, straight from their official websites.', img='downloads'),
+        banner('Resources', [('Resources', None)], 'Claim, service and transaction forms from our insurance and mutual fund partners, straight from their official websites.', img='downloads'),
         f'''  <section class="section bg-alt" aria-labelledby="dl-title">
     <div class="container">
       <div class="section-head" data-aos="fade-up">
@@ -353,13 +407,15 @@ def downloads():
       <div class="grid grid--3">
 {cards}
       </div>
-      <div class="notice mt-6" data-aos="fade-up">{I("hand-holding-medical")}<p><strong>Need help with a form or a claim?</strong> Call us on <a href="tel:+919747546614">+91 97475 46614</a> or email <a href="mailto:service@invest4u.in">service@invest4u.in</a>. We'll tell you exactly which form you need and help you fill it in.</p></div>
+      <div class="notice mt-6" data-aos="fade-up">{I("hand-holding-medical")}<p><strong>Need help with a form or a claim?</strong> Call us on <a href="tel:+919847046614">+91 98470 46614</a> or email <a href="mailto:service@invest4u.in">service@invest4u.in</a>. We'll tell you exactly which form you need and help you fill it in.</p></div>
     </div>
   </section>''',
         cta_band(),
     )
-    page('downloads.html', 'Downloads: Claim & Service Forms', 'Download claim and service forms for LIC, Star Health, ICICI Lombard, United India, National Insurance and CAMS from their official websites.',
-         body, current='downloads.html', banner_img='downloads')
+    page('resources.html', 'Resources: Claim & Service Forms', 'Download claim and service forms for LIC, Star Health, ICICI Lombard, United India, National Insurance and CAMS from their official websites.',
+         body, current='resources.html', banner_img='downloads')
+    # Old address: keep it working for bookmarks and search results
+    redirect_page('downloads.html', 'resources.html', 'Resources: Claim & Service Forms')
 
 
 # ---------------------------------------------------------------- Pay online
@@ -378,7 +434,7 @@ def pay_online():
       <div class="fraud-notice" role="note" data-aos="fade-up">
         <h2 id="fraud-title">{I("triangle-exclamation")} Stay safe from payment fraud</h2>
         <p><strong>We accept payments only to the accounts listed on this page. We never ask for OTPs or payments to personal numbers.</strong></p>
-        <p class="mt-0">Verify by calling <a href="tel:+919747546614">+91 97475 46614</a> before you pay if anything looks unusual.</p>
+        <p class="mt-0">Verify by calling <a href="tel:+919847046614">+91 98470 46614</a> before you pay if anything looks unusual.</p>
       </div>
     </div>
   </section>''',
@@ -416,10 +472,10 @@ def pay_online():
         <article class="card pay-card" data-aos="fade-up" data-aos-delay="200">
           <div class="pay-card__head"><span class="icon-circle">{I("qrcode")}</span><h3>UPI / Google Pay</h3></div>
           <p>Scan the QR code or pay to our UPI ID from any UPI app.</p>
-          <!-- TODO: client to provide the verified UPI ID and QR image (linked to +91 97475 46614 or the LLP account only) -->
+          <!-- TODO: client to provide the verified UPI ID and QR image (linked to +91 98470 46614 or the LLP account only) -->
           <dl class="copy-list">
 {copy_row('UPI ID', '[TO BE PROVIDED]', 'UPI ID')}
-{copy_row('UPI number', '+91 97475 46614', 'UPI number')}
+{copy_row('UPI number', '+91 98470 46614', 'UPI number')}
           </dl>
           <div class="qr" role="img" aria-label="UPI QR code placeholder">QR code<br>[TO BE PROVIDED]</div>
         </article>
@@ -435,7 +491,7 @@ def pay_online():
       <ol class="timeline" data-inview>
         <li class="timeline__line" aria-hidden="true"></li>
         <li class="timeline__step" data-aos="fade-up"><span class="timeline__num" aria-hidden="true">01</span><div><h3>Pay</h3><p>Use one of the verified options above.</p></div></li>
-        <li class="timeline__step" data-aos="fade-up" data-aos-delay="150"><span class="timeline__num" aria-hidden="true">02</span><div><h3>Share proof</h3><p>Send the screenshot or transaction ID on WhatsApp to +91 97475 46614.</p></div></li>
+        <li class="timeline__step" data-aos="fade-up" data-aos-delay="150"><span class="timeline__num" aria-hidden="true">02</span><div><h3>Share proof</h3><p>Send the screenshot or transaction ID on WhatsApp to +91 98470 46614.</p></div></li>
         <li class="timeline__step" data-aos="fade-up" data-aos-delay="300"><span class="timeline__num" aria-hidden="true">03</span><div><h3>Receipt</h3><p>We confirm and send your receipt within one working day.</p></div></li>
         <li class="timeline__step" data-aos="fade-up" data-aos-delay="450"><span class="timeline__num" aria-hidden="true">04</span><div><h3>Questions?</h3><p>Call us any time during office hours.</p></div></li>
       </ol>

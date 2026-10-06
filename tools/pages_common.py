@@ -27,7 +27,7 @@ FOUNDER_SIGN = _slice(INDEX_MAIN, '<figcaption class="founder__sign">', '</figca
 INNER_HEAD = AOS_CSS
 INNER_SCRIPTS = AOS_JS
 
-CALL = f'<a class="btn btn--outline-white" href="tel:+919747546614">{I("phone")} +91 97475 46614</a>'
+CALL = f'<a class="btn btn--outline-white" href="tel:+919847046614">{I("phone")} +91 98470 46614</a>'
 
 
 def crumbs(items):
@@ -118,3 +118,103 @@ def page(out, title, desc, body, **kw):
     if img:
         kw['preload'] = f'<link rel="preload" as="image" href="assets/images/banners/{img}.webp" fetchpriority="high">'
     build(out, title, desc, body, **kw)
+
+
+# ---------------------------------------------------------------- Goal-based services (home, Services page, navbar, footer)
+# (id, icon, title, one-line description, [(service, link)], (more link, label))
+GOALS = [
+    ('protect-family', 'shield-heart', 'Protect Your Family', 'Make sure the people you love are looked after, whatever happens.',
+     [('Life Insurance', 'life-insurance.html'), ('Term Insurance', 'term-insurance.html'), ('Health Insurance', 'health-insurance.html'), ('General Insurance', 'general-insurance.html')],
+     ('life-insurance.html', 'Protect your family')),
+    ('grow-wealth', 'seedling', 'Grow Your Wealth', 'Make your savings work harder with disciplined, goal-matched investing.',
+     [('Mutual Funds', 'mutual-funds.html'), ('SIP', 'sip-investment.html'), ('Wealth Creation', 'wealth-creation.html'), ('Tax Planning', 'tax-planning.html')],
+     ('mutual-funds.html', 'Start growing your wealth')),
+    ('plan-future', 'route', 'Plan Your Future', 'Put a clear plan and a number behind the milestones that matter to you.',
+     [('Retirement Planning', 'retirement-planning.html'), ("Child's Education", 'child-education.html'), ('Marriage Planning', 'marriage-planning.html'), ('Goal-Based Planning', 'goal-based-planning.html')],
+     ('goal-based-planning.html', 'Plan your future')),
+    ('protect-legacy', 'landmark', 'Protect Your Legacy', 'Pass on what you have built to the next generation, smoothly and clearly.',
+     [('Estate Planning', 'estate-planning.html'), ('Succession Planning', 'succession-planning.html'), ('Wealth Transfer', 'wealth-transfer.html')],
+     ('estate-planning.html', 'Protect your legacy')),
+]
+
+
+def goal_grid(with_ids=False):
+    """The 2 × 2 goal cards + 'Not sure where to start?' card (same markup as the home page)."""
+    cards = []
+    for i, (gid, ic, title, desc, items, (more, more_label)) in enumerate(GOALS):
+        delay = ' data-aos-delay="100"' if i % 2 else ''
+        ident = f' id="{gid}"' if with_ids else ''
+        chips = '\n'.join(f'            <li><a href="{h}">{n}</a></li>' for n, h in items)
+        cards.append(f'''        <article class="goal-card"{ident} data-aos="fade-up"{delay}>
+          <span class="goal-card__icon">{I(ic)}</span>
+          <div class="goal-card__body">
+            <h3>{title}</h3>
+            <p>{desc}</p>
+            <ul class="goal-card__chips" aria-label="{title}: services">
+{chips}
+            </ul>
+            <a class="link-arrow" href="{more}">{more_label} {I("arrow-right")}</a>
+          </div>
+        </article>''')
+    return '      <div class="goal-grid">\n' + '\n'.join(cards) + '''
+        <article class="card card--cta goal-grid__cta" data-aos="fade-up">
+          <h3>Not sure where to start?</h3>
+          <p>Book a free financial checkup and we'll help you work out what you need, and what you don't.</p>
+          <a class="btn" href="financial-checkup.html">Book Free Checkup</a>
+        </article>
+      </div>'''
+
+
+# ---------------------------------------------------------------- Partners (home page section component)
+# Logo files live in invest4u/assets/images/partners/. TODO: client to confirm the list and logo permissions.
+PARTNER_LOGOS = {
+    'cams': ('cams.svg', 500, 176, 'CAMS'),
+    'lic': ('lic.webp', 150, 83, 'LIC of India'),
+    'star-health': ('star-health.webp', 203, 89, 'Star Health'),
+    'united-india': ('united-india.webp', 185, 89, 'United India Insurance'),
+    'national-insurance': ('national-insurance.webp', 191, 89, 'National Insurance'),
+    'icici-lombard': ('icici-lombard.webp', 247, 89, 'ICICI Lombard'),
+}
+PARTNER_CATEGORIES = [
+    ('chart-line', 'Investment Partners', ['cams']),
+    ('user-shield', 'Life Insurance Partners', ['lic']),
+    ('heart-pulse', 'Health Insurance Partners', ['star-health']),
+    ('umbrella', 'General Insurance Partners', ['united-india', 'national-insurance', 'icici-lombard']),
+]
+
+
+def partner_card(icon, title, keys, delay=0):
+    logos = '\n'.join(
+        f'            <li class="partner-card__logo"><img src="assets/images/partners/{f}" alt="{alt}" width="{w}" height="{h}" loading="lazy"></li>'
+        for f, w, h, alt in (PARTNER_LOGOS[k] for k in keys))
+    d = f' data-aos-delay="{delay}"' if delay else ''
+    return f'''        <article class="partner-card" data-aos="fade-up"{d}>
+          <h3 class="partner-card__title"><span class="partner-card__icon">{I(icon)}</span>{title}</h3>
+          <ul class="partner-card__logos" aria-label="{title}">
+{logos}
+          </ul>
+        </article>'''
+
+
+def partner_grid():
+    return '      <div class="partner-grid">\n' + '\n'.join(
+        partner_card(ic, t, k, (i % 2) * 100) for i, (ic, t, k) in enumerate(PARTNER_CATEGORIES)) + '\n      </div>'
+
+
+def redirect_page(old, new, title):
+    """A tiny noindex page at an old address that forwards to the new one (static-host friendly)."""
+    open(SITE + old, 'w').write(f'''<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <title>Moved | Invest 4U Solutions</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://www.invest4u.in/{new}">
+  <meta http-equiv="refresh" content="0; url={new}">
+</head>
+<body>
+  <p>This page has moved to <a href="{new}">{title}</a>.</p>
+</body>
+</html>
+''')
+    print('wrote', old, '(redirect to', new + ')')

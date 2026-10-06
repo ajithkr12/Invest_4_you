@@ -125,7 +125,7 @@ Every page has a unique title and description, canonical, Open Graph and Twitter
 
 - **Regulatory IDs:** IRDAI/LIC agency code, AMFI ARN and EUIN, LLPIN, grievance officer.
 - **Partners:** confirmed list and permission to use their logos.
-- **Payment details:** bank account, IFSC, UPI ID and QR, all tied to the single verified number +91 97475 46614.
+- **Payment details:** bank account, IFSC, UPI ID and QR, all tied to the single verified number +91 98470 46614.
 - **Content approval:** founder message, real consented testimonials, milestone years, award names, years and bodies, team details.
 - **Media:** founder, team and award photos; final hero videos, compressed, with matching posters.
 - **Links and data:** exact claim-form and LIC pay URLs; social profile URLs; map pin and geo coordinates; a source for the "1 in 10 Indians" life insurance statistic.

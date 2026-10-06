@@ -183,14 +183,73 @@ SERVICES = [
 ]
 
 
+# The four questions every service page answers: What is it? Why do I need it? (How we help and the CTA are built below.)
+WHAT_WHY = {
+    'life-insurance': dict(
+        what=['Life insurance is a contract with an insurer: you pay a regular premium, and if you die during the policy term, the insurer pays your family a lump sum (the sum assured). Some plans, such as endowment and money-back policies, also pay out if you survive the term.',
+              'The simplest form, a term plan, gives the largest cover for the lowest premium because it only pays on death.'],
+        why='If your family depends on your income, losing it would leave them with the same bills, loans and goals, but no way to pay for them. Life insurance makes sure that money is still there.',
+        risks=['Day-to-day expenses with no income coming in', 'A home or car loan your family would have to repay', "Children's education and other goals left unfunded", 'Savings used up to cover the gap']),
+    'health-insurance': dict(
+        what=['Health insurance pays your hospital bills when you or a family member is admitted for treatment. At a network hospital it can pay the hospital directly (cashless); elsewhere you pay first and claim the money back.',
+              'A family floater covers everyone in one policy with a shared sum insured.'],
+        why='Medical costs in India have risen far faster than incomes, and a single hospital stay can cost lakhs. Without cover, that money comes out of your savings or goals, often when you can least afford it.',
+        risks=['A large hospital bill draining years of savings', 'Borrowing or selling investments in an emergency', "Losing your employer's group cover when you change jobs or retire", 'Higher premiums and waiting periods if you start late']),
+    'corporate-insurance': dict(
+        what=['Corporate insurance is a set of policies that protect a business: its premises, stock and equipment, its people (group health and group term life), its liability to others, and key individuals the business depends on.',
+              'Each policy is chosen to match the risks your particular business faces.'],
+        why='A fire, flood, accident, lawsuit or the loss of a key person can stop a business overnight. Insurance pays for the damage and keeps the business running while you recover, instead of draining its capital.',
+        risks=['Damage to premises, stock or machinery', 'Claims from customers, visitors or third parties', "Losing a founder or key employee", 'Employees without health cover for themselves and their families']),
+    'mutual-funds': dict(
+        what=["A mutual fund pools money from many investors and invests it in shares, bonds or money-market instruments, managed by a professional fund manager and regulated by SEBI. You own units of the fund, and their value rises and falls with the fund's investments.",
+              'You can invest a lump sum, or a fixed amount every month through a SIP.'],
+        why="Money left in a savings account loses value to inflation every year. Mutual funds give you a regulated, diversified way to grow your savings towards goals such as education, a home or retirement, at a level of risk that suits you.",
+        risks=['Savings that do not keep pace with rising prices', 'Goals that need more growth than a deposit can give', 'Putting all your money in one company or one type of asset', 'Investing without a plan, or stopping when markets fall']),
+    'retirement-planning': dict(
+        what=["Retirement planning means working out how much money you will need to live on after you stop working, and building a plan to get there: how much to save, where to invest it, and how to turn it into a regular income when you retire.",
+              'It also covers the protection you will need along the way, such as health cover and life insurance.'],
+        why='Most people in India do not have a pension. With longer lives and rising prices, your savings may need to last 25 years or more. Starting late, or without a plan, can mean running short just when you can no longer earn.',
+        risks=['Savings running out in later years', 'Inflation steadily reducing what your money can buy', 'Medical costs rising as you get older', 'Depending on children for day-to-day expenses']),
+    'child-education': dict(
+        what=["Child education planning means putting a figure on what your child's education will cost, allowing for fees that rise every year, and building savings to meet that cost on time.",
+              'It usually combines regular investing (such as a SIP) with life cover, so the plan continues even if something happens to a parent.'],
+        why="Education costs in India have risen much faster than general prices, and professional courses or study abroad can cost many times today's fees. Without planning, families often end up taking expensive loans or compromising on choices.",
+        risks=['Fees rising faster than your savings', 'Large education loans at a young age', "Having to compromise on your child's choice of course", 'The plan stopping if a parent is no longer there']),
+    'tax-planning': dict(
+        what=['Tax planning means using the deductions and exemptions the law allows, such as those under Sections 80C and 80D, and choosing the right tax regime, so you pay the tax you owe and no more.',
+              'Good tax planning chooses investments and insurance that you would want anyway, and treats the tax saving as a bonus.'],
+        why='Without a plan, many people either miss deductions they are entitled to, or rush into products in March that do not suit their goals. Both cost money, every year.',
+        risks=['Paying more tax than necessary', "Last-minute investments that do not fit your goals", 'Choosing the wrong regime for your income', 'Missing proofs when your employer or the tax department asks']),
+}
+STEP_TITLES = ['Consultation', 'Comparison', 'Plan &amp; set-up', 'Ongoing support']
+
+from services_extra import EXTRA, GOAL_SERVICES, LEGAL_NOTE
+for _e in EXTRA:
+    WHAT_WHY[_e['slug']] = _e.pop('why')
+    SERVICES.append(_e)
+BY_SLUG = {s['slug']: s for s in SERVICES}
+
+
+def goal_of(slug):
+    for gid, (title, slugs) in GOAL_SERVICES.items():
+        if slug in slugs:
+            return gid, title, slugs
+    return None, 'Our services', [s['slug'] for s in SERVICES]
+
+
 def service_nav(current):
     cur = ' aria-current="page"'
-    items = [f'<li><a href="{s["slug"]}.html"{cur if s["slug"] == current else ""}>{s["name"]} {I("chevron-right")}</a></li>' for s in SERVICES]
+    gid, title, slugs = goal_of(current)
+    items = [f'<li><a href="{x}.html"{cur if x == current else ""}>{BY_SLUG[x]["name"]} {I("chevron-right")}</a></li>' for x in slugs]
+    items.append(f'<li><a href="services.html">All services {I("chevron-right")}</a></li>')
     return '\n            '.join(items)
 
 
 def service_page(s):
-    intro = '\n          '.join(f'<p>{p}</p>' for p in s['intro'])
+    qa = WHAT_WHY[s['slug']]
+    lname = s['name'].lower()
+    what = '\n          '.join(f'<p>{p}</p>' for p in qa['what'])
+    how_intro = '\n          '.join(f'<p>{p}</p>' for p in s['intro'])
     callout = ''
     if s.get('callout'):
         num, text, todo = s['callout']
@@ -203,9 +262,12 @@ def service_page(s):
     notices = ''
     if s.get('risk'):
         notices += f'\n          <div class="mt-6">{MF_RISK}</div>'
+    if s.get('legal'):
+        notices += f'\n          <div class="notice mt-6">{I("scale-balanced")}<p>{LEGAL_NOTE}</p></div>'
     if s.get('tax_note'):
         notices += f'\n          <div class="notice mt-6">{I("shield")}<p>{OLD_REGIME} Tax rules change from year to year; this page is general information, not tax advice.</p></div>'
 
+    risks = '\n'.join(f'          <li>{r}</li>' for r in qa['risks'])
     benefits = '\n'.join(f'''        <li class="benefit" data-aos="fade-up"{f' data-aos-delay="{(i % 2) * 100}"' if i % 2 else ''}>
           <span class="icon-circle">{I(ic)}</span>
           <div><h3>{t}</h3><p>{d}</p></div>
@@ -214,30 +276,31 @@ def service_page(s):
     steps = '\n'.join(f'''        <li class="timeline__step" data-aos="fade-up" data-aos-delay="{i * 150}">
           <span class="timeline__num" aria-hidden="true">0{i + 1}</span>
           <div>
-            <h3>{t}</h3>
+            <h3>{STEP_TITLES[i]}</h3>
             <p>{d}</p>
           </div>
         </li>''' for i, (t, d) in enumerate(s['steps']))
 
     body = main(
         banner(s['title'], [('Services', 'services.html'), (s['name'], None)], s['lead']),
-        f'''  <section class="section" aria-labelledby="intro-title">
+        # 1. What is it?
+        f'''  <section class="section" aria-labelledby="what-title">
     <div class="container with-aside">
       <div>
         <div class="prose" data-aos="fade-up">
-          <span class="eyebrow">{s['name']}</span>
-          <h2 id="intro-title">{s['short'].rstrip('.')}</h2>
-          {intro}
+          <span class="eyebrow">What is it?</span>
+          <h2 id="what-title">{s.get("what_title", f"What is {lname}?")}</h2>
+          {what}
         </div>{callout}{notices}
       </div>
       <aside class="aside-sticky" aria-label="More services and help">
         <div class="aside-card aside-card--brand">
           <h2>Talk to an advisor</h2>
-          <p>Get a free, no-obligation review of your {s['name'].lower()} needs.</p>
+          <p>Get a free, no-obligation review of your {lname} needs.</p>
           <a class="btn btn--block mt-6" href="contact.html?service={s['slug']}">Book a free consultation</a>
         </div>
-        <nav class="aside-card" aria-label="Our services">
-          <h2>Our services</h2>
+        <nav class="aside-card" aria-label="{goal_of(s['slug'])[1]}">
+          <h2>{goal_of(s['slug'])[1]}</h2>
           <ul class="service-nav">
             {service_nav(s['slug'])}
           </ul>
@@ -245,12 +308,21 @@ def service_page(s):
       </aside>
     </div>
   </section>''',
-        f'''  <section class="section bg-alt" aria-labelledby="benefits-title">
+        # 2. Why do I need it?
+        f'''  <section class="section bg-alt" aria-labelledby="why-title">
     <div class="container">
       <div class="section-head" data-aos="fade-up">
-        <span class="eyebrow">Key benefits</span>
-        <h2 id="benefits-title">Why {s['name'].lower()} matters</h2>
+        <span class="eyebrow">Why do I need it?</span>
+        <h2 id="why-title">The risk {lname} addresses</h2>
+        <p>{qa['why']}</p>
       </div>
+      <div class="why-risks" data-aos="fade-up">
+        <h3>Without it, you could face</h3>
+        <ul class="why-risks__list">
+{risks}
+        </ul>
+      </div>
+      <h3 class="why-benefits__title" data-aos="fade-up">What {lname} gives you</h3>
       <ul class="benefits">
 {benefits}
       </ul>
@@ -269,11 +341,15 @@ def service_page(s):
       </ul>
     </div>
   </section>''',
+        # 3. How can Invest 4U help?
         f'''  <section class="section bg-alt" aria-labelledby="how-title">
     <div class="container">
       <div class="section-head" data-aos="fade-up">
-        <span class="eyebrow">How we help</span>
-        <h2 id="how-title">From first conversation to lifelong support</h2>
+        <span class="eyebrow">How can Invest 4U help?</span>
+        <h2 id="how-title">Consultation, comparison, planning and ongoing support</h2>
+      </div>
+      <div class="prose how-intro" data-aos="fade-up">
+          {how_intro}
       </div>
       <ol class="timeline" data-inview>
         <li class="timeline__line" aria-hidden="true"></li>
@@ -282,44 +358,36 @@ def service_page(s):
     </div>
   </section>''',
         faq(s['faqs'], 'faq', heading=f'{s["name"]}: common questions', bg=''),
-        cta_band(),
+        # 4. What should I do next?
+        f'''  <section class="cta-band bg-brand next-steps" aria-labelledby="next-title">
+    <div class="container">
+      <span class="eyebrow eyebrow--light">What should I do next?</span>
+      <h2 id="next-title">Take the first step, at no cost</h2>
+      <p>Choose whatever suits you. There is no fee and no obligation.</p>
+      <ul class="next-steps__grid">
+        <li><a class="next-step" href="contact.html?service={s['slug']}">{I("calendar-check")}<strong>Book a Free Consultation</strong><span>Meet us at our office, at home or online.</span></a></li>
+        <li><a class="next-step" href="tel:+919847046614">{I("phone")}<strong>Talk to an Advisor</strong><span>Call +91 98470 46614, Mon to Sat, 9 to 6:30.</span></a></li>
+        <li><a class="next-step" href="financial-checkup.html">{I("clipboard-check")}<strong>Get a Free Financial Review</strong><span>A complete check of your cover, savings and goals.</span></a></li>
+      </ul>
+    </div>
+  </section>''',
     )
     page(f'{s["slug"]}.html', s['title'], s['desc'], body, current=None, sub_current=f'{s["slug"]}.html',
          banner_img='service-detail')
 
 
 def services_overview():
-    cards = []
-    for i, s in enumerate(SERVICES):
-        cards.append(f'''        <article class="card card--service" data-aos="fade-up"{f' data-aos-delay="{(i % 3) * 100}"' if i % 3 else ''}>
-          <span class="icon-circle">{I(s["icon"])}</span>
-          <h3>{s["name"]}</h3>
-          <p>{s["lead"]}</p>
-          <a class="link-arrow" href="{s["slug"]}.html">Learn more<span class="sr-only"> about {s["name"].lower()}</span> {I("arrow-right")}</a>
-        </article>''')
-    cards.append(f'''        <article class="card card--service" data-aos="fade-up" data-aos-delay="100">
-          <span class="icon-circle">{I("sack-dollar")}</span>
-          <h3>Wealth Creation &amp; Estate Planning</h3>
-          <p>Build a strong, resilient financial foundation through strategic planning, smart investments and continuous growth.</p>
-          <a class="link-arrow" href="#wealth">Learn more<span class="sr-only"> about wealth creation and estate planning</span> {I("arrow-right")}</a>
-        </article>
-        <article class="card card--cta" data-aos="fade-up" data-aos-delay="200">
-          <h3>Not sure where to start?</h3>
-          <p>Book a free financial checkup and we'll help you work out what you need, and what you don't.</p>
-          <a class="btn" href="financial-checkup.html">Book Free Checkup</a>
-        </article>''')
     body = main(
         banner('Our Services', [('Services', None)], 'Insurance, investments and planning under one roof, with one team that knows your whole picture.', img='services'),
-        f'''  <section class="section bg-alt" aria-labelledby="services-title">
+        f'''  <section class="section bg-alt" id="services" aria-labelledby="services-title">
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <span class="eyebrow">Products &amp; Services</span>
-        <h2 id="services-title">Designed to Meet Your Evolving Needs</h2>
-        <p>Choose a service to learn more, or book a free checkup and we'll look at everything together.</p>
+        <h2 id="services-title">What Would You Like to Achieve?</h2>
+        <p>Start with your goal, not a product. Choose a service to learn more, or book a free checkup and we'll look at everything together.</p>
       </div>
-      <div class="grid grid--3">
-{chr(10).join(cards)}
-      </div>
+{goal_grid(with_ids=True)}
+      <p class="for-business" data-aos="fade-up">{I("building-shield")} <span>For businesses: <a href="corporate-insurance.html">Corporate Insurance</a>, protecting your premises, people and key staff.</span></p>
     </div>
   </section>''',
         f'''  <section class="section" id="wealth" aria-labelledby="wealth-title">
@@ -340,7 +408,7 @@ def services_overview():
           <li>Nominations and records your family can find</li>
           <li>Regular reviews as your wealth grows</li>
         </ul>
-        <a class="btn" href="contact.html?service=wealth">Talk to us about your wealth plan</a>
+        <div class="btn-group"><a class="btn" href="wealth-creation.html">Wealth Creation</a><a class="btn btn--outline" href="estate-planning.html">Estate Planning</a></div>
       </div>
     </div>
     <div class="container mt-6">{MF_RISK}</div>

@@ -2,207 +2,332 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.invest4u.in/about.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.invest4u.in/blog-article.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <loc>https://www.invest4u.in/blog-building-a-family-financial-plan.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-child-education-planning-guide.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-common-investment-mistakes.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-health-insurance-basics.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-how-much-do-you-need-to-retire.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-how-much-life-insurance-do-you-need.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-section-80c-explained.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-section-80d-explained.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-sip-basics-beginners-guide.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-start-retirement-planning-early.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/blog-term-insurance-explained.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/blog.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/cagr-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/calculators.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/child-education-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/child-education.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/compound-interest-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/contact.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/corporate-insurance.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/disclaimer.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.invest4u.in/downloads.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.invest4u.in/emi-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/epf-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/estate-planning.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/fd-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/financial-checkup.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.invest4u.in/for-business-owners.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/for-corporates.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/for-families.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/for-nris.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/for-parents.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/for-young-professionals.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/general-insurance.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/goal-based-planning.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.invest4u.in/grievance.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/gst-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/health-insurance.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/income-tax-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/inflation-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/life-cover-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/life-insurance.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/lumpsum-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/marriage-planning.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/mutual-fund-returns-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/mutual-funds.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/pay-online.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/ppf-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/privacy-policy.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/rd-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/resources.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/retirement-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/retirement-planning.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/services.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/sip-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/sip-investment.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/step-up-sip-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/succession-planning.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/sukanya-samriddhi-yojana-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/swp-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/tax-planning.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/term-insurance.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.invest4u.in/terms.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.invest4u.in/wealth-creation.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.invest4u.in/wealth-transfer.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.invest4u.in/xirr-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

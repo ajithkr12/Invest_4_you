@@ -4,7 +4,7 @@ Usage:  python3 tools/build_all.py
 """
 import datetime, glob, os, re
 
-import build_index, build_styleguide, pages_services, pages_core, pages_misc, pages_calcs
+import build_index, build_styleguide, pages_services, pages_core, pages_misc, pages_calcs, pages_solutions, pages_blog
 from build import SITE
 
 BASE = 'https://www.invest4u.in/'
@@ -19,7 +19,9 @@ def build_pages():
     for fn in (pages_core.about, pages_core.contact, pages_core.checkup, pages_core.downloads, pages_core.pay_online):
         fn()
     pages_calcs.build_all_calcs()
-    for fn in (pages_misc.blog, pages_misc.article, pages_misc.privacy,
+    pages_solutions.build_all_solutions()
+    pages_blog.build_all_blog()
+    for fn in (pages_misc.privacy,
                pages_misc.terms, pages_misc.disclaimer, pages_misc.grievance, pages_misc.not_found):
         fn()
 

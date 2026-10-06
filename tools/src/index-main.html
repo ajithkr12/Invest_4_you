@@ -4,8 +4,7 @@
        TODO: replace assets/videos/hero-1/2/3.mp4 and their .webp posters with real footage
        (Pexels themes: family, office meeting, growth chart). Keep each MP4 under 3 MB, muted, no audio track.
        Videos load only on screens 768px+ and never under reduced motion; phones see the posters. -->
-  <section class="hero" aria-label="Introduction">
-    <h1 class="sr-only">Invest 4U Solutions: insurance and investment advisors in Kochi since 1992</h1>
+  <section class="hero" aria-labelledby="hero-title">
     <div class="swiper hero-swiper">
       <div class="swiper-wrapper">
 
@@ -17,20 +16,22 @@
             </picture>
             <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-1.mp4"></video>
           </div>
-          <!-- Slide 1 is video-only (client choice); its text is kept here, commented out. The page <h1> is the visually hidden heading above the slider.
-          <div class="hero__content">
+          <!-- Slide 1: brand message (the page <h1>); slides 2 and 3 keep their own headlines -->
+          <div class="hero__content hero__content--brand">
             <div class="container">
               <div class="hero__inner">
-                <span class="eyebrow hero__anim" style="--d:0">Financial Architects · Since 1992</span>
-                <h2 class="hero__title hero__anim" style="--d:1">Empower Your Financial Future</h2>
-                <p class="hero__text hero__anim" style="--d:2">Expert investment guidance and personalised advice for every stage of your financial journey.</p>
-                <div class="btn-group hero__anim" style="--d:3">
-                  <a class="btn btn--lg" href="financial-checkup.html">Get Free Financial Checkup</a>
+                <span class="eyebrow hero__anim" style="--d:0">Financial Architects</span>
+                <h1 class="hero__brand hero__anim" id="hero-title" style="--d:1">Invest 4U Solutions</h1>
+                <p class="hero__position hero__anim" style="--d:2">Investment &amp; Insurance Hub <span>Since 1992</span></p>
+                <p class="hero__tagline hero__anim" lang="ml" style="--d:3">“ഞങ്ങൾ ഒപ്പമുണ്ട്”<span class="sr-only" lang="en"> (We are with you)</span></p>
+                <p class="hero__text hero__anim" style="--d:4">Guiding families through their financial journey since 1992.</p>
+                <div class="btn-group hero__anim" style="--d:5">
+                  <a class="btn btn--lg" href="financial-checkup.html">Get Free Financial Checkup {{icon:arrow-right|icon--arrow}}</a>
                   <a class="btn btn--lg btn--outline-white" href="#services">Explore Services</a>
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
 
         <div class="swiper-slide">
@@ -81,6 +82,7 @@
       </div>
     </div>
 
+
     <div class="hero__controls">
       <div class="container">
         <div class="swiper-pagination hero__pagination"></div>
@@ -127,12 +129,10 @@
     <div class="container split">
       <div class="about-collage" data-aos="fade-right">
         <div class="about-collage__main bracket">
-          <!-- TODO: replace with a real photo of the team or office -->
-          <img src="assets/images/about-1.webp" alt="An Invest 4U advisor meeting with clients (placeholder image)" width="800" height="600" loading="lazy">
+          <img src="assets/images/about-1.webp" alt="A financial planning discussion at a meeting table, with an adviser explaining options beside a laptop" width="1600" height="1067" loading="lazy">
         </div>
         <div class="about-collage__sub" data-aos="zoom-in" data-aos-delay="250">
-          <!-- TODO: replace with a real photo -->
-          <img src="assets/images/about-3.webp" alt="A family reviewing their financial plan (placeholder image)" width="800" height="600" loading="lazy">
+          <img src="assets/images/about-3.webp" alt="Hands of a family placed together, a symbol of support and trust" width="1000" height="1074" loading="lazy">
         </div>
         <div class="about-collage__badge" data-aos="zoom-in" data-aos-delay="400">
           <div><strong>33+</strong>years of trusted advice</div>
@@ -142,7 +142,7 @@
       <div class="about__text" data-aos="fade-left">
         <span class="eyebrow">About Us</span>
         <h2 id="about-title">Guiding Investors for Over Three Decades</h2>
-        <p>Invest 4U began in 1992 in Tripunithura with one goal: to help local families protect what they have and plan for what they want. For more than three decades we have been a trusted partner of LIC of India, and today we also advise on health and corporate insurance, mutual funds and long-term financial planning.</p>
+        <p>For over 3 decades, Invest 4U Solutions has been helping individuals, families, professionals and businesses make confident financial decisions through ethical, transparent and personalized financial guidance.</p>
         <p>In 2025 we formally registered as K &amp; VK Invest 4U Advisory Services LLP. Our approach hasn't changed: service first, with time-tested solutions for short and long-term goals, and support that continues long after the policy or investment is in place.</p>
         <ul class="tick-list tick-list--2col">
           <li>Personalised planning</li>
@@ -173,10 +173,9 @@
         <div class="founder__quote-mark">{{icon:quote-left}}</div>
         <!-- TODO: DRAFT message written for layout. The client must review, edit and approve it before launch. -->
         <blockquote>
-          <p>When I started advising families in Tripunithura in 1992, I made a simple promise: treat every client's money as carefully as my own. Three decades later, that promise still guides everything we do.</p>
+          <p>When I started advising families in Kochi in 1992, I made a simple promise: treat every client's money as carefully as my own. Three decades later, that promise still guides everything we do.</p>
           <p>We have sat with families as they bought their first policy, planned their children's education and prepared for retirement, and we have stood beside them when they needed to make a claim. Our mission is unchanged: to help every family we serve become financially secure, through honest advice and service that lasts a lifetime.</p>
         </blockquote>
-        <p class="placeholder-note">Draft message: awaiting approval from the founder</p>
         <figcaption class="founder__sign">
           <!-- Optional: replace this SVG flourish with a scanned signature image -->
           <svg class="founder__signature" viewBox="0 0 120 50" aria-hidden="true"><path d="M4 38c10-18 18-30 24-28s-6 26-2 28 12-22 18-22-2 18 2 18 10-14 16-14-2 12 2 12 14-10 22-12 18-2 30-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
@@ -194,61 +193,68 @@
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <span class="eyebrow">Our Services</span>
-        <h2 id="services-title">Comprehensive Financial Solutions Tailored for You</h2>
-        <p>From protecting your family to growing your savings, we help you choose the right products and stay with you for the long run.</p>
+        <h2 id="services-title">What Would You Like to Achieve?</h2>
+        <p>Start with your goal, not a product. We'll help you choose the right mix of protection, investments and planning, and stay with you for the long run.</p>
       </div>
 
-      <div class="grid grid--3">
-        <article class="card card--service" data-aos="fade-up">
-          <span class="icon-circle">{{icon:people-roof}}</span>
-          <h3>Life Insurance</h3>
-          <p>Future value protection: long-term security and financial stability for you and your loved ones, whatever life brings.</p>
-          <a class="link-arrow" href="life-insurance.html">Learn more<span class="sr-only"> about life insurance</span> {{icon:arrow-right}}</a>
+      <!-- Goal-based services: keep in step with GOALS in tools/pages_common.py -->
+      <div class="goal-grid">
+        <article class="goal-card" data-aos="fade-up">
+          <span class="goal-card__icon">{{icon:shield-heart}}</span>
+          <div class="goal-card__body">
+            <h3>Protect Your Family</h3>
+            <p>Make sure the people you love are looked after, whatever happens.</p>
+            <ul class="goal-card__chips" aria-label="Protect Your Family: services">
+            <li><a href="life-insurance.html">Life Insurance</a></li>
+            <li><a href="term-insurance.html">Term Insurance</a></li>
+            <li><a href="health-insurance.html">Health Insurance</a></li>
+            <li><a href="general-insurance.html">General Insurance</a></li>
+            </ul>
+            <a class="link-arrow" href="life-insurance.html">Protect your family {{icon:arrow-right}}</a>
+          </div>
         </article>
-        <article class="card card--service" data-aos="fade-up" data-aos-delay="100">
-          <span class="icon-circle">{{icon:heart-pulse}}</span>
-          <h3>Health Insurance</h3>
-          <p>Financial security and peace of mind during medical challenges, with access to quality healthcare when it matters most.</p>
-          <a class="link-arrow" href="health-insurance.html">Learn more<span class="sr-only"> about health insurance</span> {{icon:arrow-right}}</a>
+        <article class="goal-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="goal-card__icon">{{icon:seedling}}</span>
+          <div class="goal-card__body">
+            <h3>Grow Your Wealth</h3>
+            <p>Make your savings work harder with disciplined, goal-matched investing.</p>
+            <ul class="goal-card__chips" aria-label="Grow Your Wealth: services">
+            <li><a href="mutual-funds.html">Mutual Funds</a></li>
+            <li><a href="sip-investment.html">SIP</a></li>
+            <li><a href="wealth-creation.html">Wealth Creation</a></li>
+            <li><a href="tax-planning.html">Tax Planning</a></li>
+            </ul>
+            <a class="link-arrow" href="mutual-funds.html">Start growing your wealth {{icon:arrow-right}}</a>
+          </div>
         </article>
-        <article class="card card--service" data-aos="fade-up" data-aos-delay="200">
-          <span class="icon-circle">{{icon:building-shield}}</span>
-          <h3>Corporate Insurance</h3>
-          <p>Safeguard your organisation's assets, leadership and people against the unforeseen, for continuity and long-term growth.</p>
-          <a class="link-arrow" href="corporate-insurance.html">Learn more<span class="sr-only"> about corporate insurance</span> {{icon:arrow-right}}</a>
+        <article class="goal-card" data-aos="fade-up">
+          <span class="goal-card__icon">{{icon:route}}</span>
+          <div class="goal-card__body">
+            <h3>Plan Your Future</h3>
+            <p>Put a clear plan and a number behind the milestones that matter to you.</p>
+            <ul class="goal-card__chips" aria-label="Plan Your Future: services">
+            <li><a href="retirement-planning.html">Retirement Planning</a></li>
+            <li><a href="child-education.html">Child's Education</a></li>
+            <li><a href="marriage-planning.html">Marriage Planning</a></li>
+            <li><a href="goal-based-planning.html">Goal-Based Planning</a></li>
+            </ul>
+            <a class="link-arrow" href="goal-based-planning.html">Plan your future {{icon:arrow-right}}</a>
+          </div>
         </article>
-        <article class="card card--service" data-aos="fade-up">
-          <span class="icon-circle">{{icon:chart-line}}</span>
-          <h3>Mutual Funds</h3>
-          <p>Equity, debt and liquid funds chosen to match your goals, time frame and comfort with risk.</p>
-          <a class="link-arrow" href="mutual-funds.html">Learn more<span class="sr-only"> about mutual funds</span> {{icon:arrow-right}}</a>
+        <article class="goal-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="goal-card__icon">{{icon:landmark}}</span>
+          <div class="goal-card__body">
+            <h3>Protect Your Legacy</h3>
+            <p>Pass on what you have built to the next generation, smoothly and clearly.</p>
+            <ul class="goal-card__chips" aria-label="Protect Your Legacy: services">
+            <li><a href="estate-planning.html">Estate Planning</a></li>
+            <li><a href="succession-planning.html">Succession Planning</a></li>
+            <li><a href="wealth-transfer.html">Wealth Transfer</a></li>
+            </ul>
+            <a class="link-arrow" href="estate-planning.html">Protect your legacy {{icon:arrow-right}}</a>
+          </div>
         </article>
-        <article class="card card--service" data-aos="fade-up" data-aos-delay="100">
-          <span class="icon-circle">{{icon:person-cane}}</span>
-          <h3>Retirement Planning</h3>
-          <p>Lasting peace of mind and financial independence, so your resources keep supporting your lifestyle after work.</p>
-          <a class="link-arrow" href="retirement-planning.html">Learn more<span class="sr-only"> about retirement planning</span> {{icon:arrow-right}}</a>
-        </article>
-        <article class="card card--service" data-aos="fade-up" data-aos-delay="200">
-          <span class="icon-circle">{{icon:graduation-cap}}</span>
-          <h3>Child Education Planning</h3>
-          <p>Start early and save steadily so your children's education is funded when the time comes.</p>
-          <a class="link-arrow" href="child-education.html">Learn more<span class="sr-only"> about child education planning</span> {{icon:arrow-right}}</a>
-        </article>
-        <article class="card card--service" data-aos="fade-up">
-          <span class="icon-circle">{{icon:file-invoice-dollar}}</span>
-          <h3>Tax Planning</h3>
-          <p>Use Section 80C and 80D deductions wisely, choosing investments that also serve your goals.</p>
-          <a class="link-arrow" href="tax-planning.html">Learn more<span class="sr-only"> about tax planning</span> {{icon:arrow-right}}</a>
-        </article>
-        <article class="card card--service" data-aos="fade-up" data-aos-delay="100">
-          <span class="icon-circle">{{icon:sack-dollar}}</span>
-          <h3>Wealth Creation &amp; Estate Planning</h3>
-          <p>Build a strong, resilient foundation through strategic planning and smart investments, for prosperity that lasts generations.</p>
-          <!-- TODO: no detail page yet; links to the overview section until the client decides -->
-          <a class="link-arrow" href="services.html#wealth">Learn more<span class="sr-only"> about wealth creation and estate planning</span> {{icon:arrow-right}}</a>
-        </article>
-        <article class="card card--cta" data-aos="fade-up" data-aos-delay="200">
+        <article class="card card--cta goal-grid__cta" data-aos="fade-up">
           <h3>Not sure where to start?</h3>
           <p>Book a free financial checkup and we'll help you work out what you need, and what you don't.</p>
           <a class="btn" href="financial-checkup.html">Book Free Checkup</a>
@@ -386,28 +392,9 @@
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <span class="eyebrow">Our Partners</span>
-        <h2 id="partners-title">Insurance and Fund Partners</h2>
+        <h2 id="partners-title">Insurance and Investment Partners</h2>
       </div>
-      <div class="marquee">
-        <div class="marquee__track">
-          <ul class="marquee__list">
-            <li><img src="assets/images/partners/lic.webp" alt="LIC of India" width="150" height="83" loading="lazy"></li>
-            <li><img src="assets/images/partners/star-health.webp" alt="Star Health" width="203" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/icici-lombard.webp" alt="ICICI Lombard" width="247" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/united-india.webp" alt="United India Insurance" width="185" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/national-insurance.webp" alt="National Insurance" width="191" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/cams.svg" alt="CAMS" width="500" height="176" loading="lazy"></li>
-          </ul>
-          <ul class="marquee__list" aria-hidden="true">
-            <li><img src="assets/images/partners/lic.webp" alt="" width="150" height="83" loading="lazy"></li>
-            <li><img src="assets/images/partners/star-health.webp" alt="" width="203" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/icici-lombard.webp" alt="" width="247" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/united-india.webp" alt="" width="185" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/national-insurance.webp" alt="" width="191" height="89" loading="lazy"></li>
-            <li><img src="assets/images/partners/cams.svg" alt="" width="500" height="176" loading="lazy"></li>
-          </ul>
-        </div>
-      </div>
+{{partners}}
     </div>
   </section>
 
@@ -569,7 +556,7 @@
     <div class="container">
       <div class="section-head" data-aos="fade-up">
         <span class="eyebrow">Awards &amp; Recognition</span>
-        <h2 id="awards-title">Recognised for Service and Performance</h2>
+        <h2 id="awards-title">Recognised for Service. Trusted for the Journey.</h2>
       </div>
       <!-- Awards from the client's current site (invest4u.in/about); captions read from the award posters. TODO: client to confirm the year of the Ernakulam Division award -->
       <div class="grid grid--3 awards-grid" data-lightbox-group>
@@ -589,7 +576,7 @@
     </div>
   </section>
 
-  <!-- ============ 12. Contact ============ -->
+{{blog}}  <!-- ============ 12. Contact ============ -->
   <section class="section bg-alt" id="contact" aria-labelledby="contact-title">
     <div class="container">
       <div class="section-head" data-aos="fade-up">
@@ -618,7 +605,7 @@
             <span class="icon-circle">{{icon:phone}}</span>
             <div>
               <h3>Call us</h3>
-              <p><a href="tel:+919747546614">+91 97475 46614</a> (primary)<br><a href="tel:+919847071373">+91 98470 71373</a><br><a href="tel:+919847046614">+91 98470 46614</a></p>
+              <p><a href="tel:+919847046614">+91 98470 46614</a> (primary)<br><a href="tel:+919847056614">+91 98470 56614</a><br><a href="tel:+919061046614">+91 90610 46614</a></p>
             </div>
           </div>
           <div class="info-card">
@@ -676,7 +663,16 @@
                   <option value="retirement-planning">Retirement Planning</option>
                   <option value="child-education">Child Education Planning</option>
                   <option value="tax-planning">Tax Planning</option>
-                  <option value="wealth">Wealth Creation &amp; Estate Planning</option>
+                  <option value="wealth">Wealth &amp; Estate Planning (general)</option>
+                  <option value="term-insurance">Term Insurance</option>
+                  <option value="general-insurance">General Insurance</option>
+                  <option value="sip-investment">SIP Investment</option>
+                  <option value="wealth-creation">Wealth Creation</option>
+                  <option value="marriage-planning">Marriage Planning</option>
+                  <option value="goal-based-planning">Goal-Based Planning</option>
+                  <option value="estate-planning">Estate Planning</option>
+                  <option value="succession-planning">Succession Planning</option>
+                  <option value="wealth-transfer">Wealth Transfer</option>
                   <option value="other">Something else</option>
                 </select>
               </div>
@@ -709,7 +705,8 @@
 
       <div class="map" data-aos="fade-up">
         <!-- TODO: confirm the map pin for the Tripunithura head office -->
-        <iframe src="https://www.google.com/maps?q=Kannankulangara%2C+Tripunithura%2C+Kochi%2C+Kerala+682301&amp;output=embed" title="Map showing the Invest 4U head office in Tripunithura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Map showing the Invest 4U head office in Tripunithura" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0320032829054!2d76.3543478!3d9.9312927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873b28c934e8f%3A0x9017ffa43418dfcd!2sInvest%204u%20Solutions!5e0!3m2!1sen!2sin!4v1791266775757!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <!-- <iframe src="https://www.google.com/maps?q=Kannankulangara%2C+Tripunithura%2C+Kochi%2C+Kerala+682301&amp;output=embed" title="Map showing the Invest 4U head office in Tripunithura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
       </div>
     </div>
   </section>

@@ -1,4 +1,6 @@
 from build import *
+from pages_common import partner_grid
+from pages_blog import featured_articles
 SRC = TOOLS + 'src/'
 
 ORG = {
@@ -14,7 +16,7 @@ ORG = {
     "image": "https://www.invest4u.in/assets/images/og-image.jpg",
     "foundingDate": "1992",
     "founder": {"@type": "Person", "name": "K.N. Krishnankutty", "jobTitle": "Founder & Managing Director"},
-    "telephone": "+91-97475-46614",
+    "telephone": "+91-98470-46614",
     "email": "info@invest4u.in",
     "priceRange": "Free consultation",
     "address": {
@@ -37,7 +39,7 @@ ORG = {
     "department": [{
         "@type": "FinancialService",
         "name": "Invest 4U Solutions, Infopark Branch",
-        "telephone": "+91-98470-71373",
+        "telephone": "+91-98470-56614",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Ground Floor, Thapasya Building, Infopark",
@@ -47,8 +49,10 @@ ORG = {
         }
     }],
     "sameAs": [
+        "https://www.facebook.com/investmests4u/",
+        "https://in.linkedin.com/company/invest4usolutions",
         "https://www.instagram.com/invest4u.in/",
-        "https://wa.me/919747546614"
+        "https://wa.me/919847046614"
     ]
 }
 
@@ -59,7 +63,7 @@ def main():
           title='Home',
           full_title='Invest 4U Solutions | Insurance & Investment Advisors, Kochi',
           desc='Invest 4U Solutions, Financial Architects since 1992: life, health and corporate insurance, mutual funds, retirement and tax planning in Kochi, Kerala.',
-          main=open(SRC + 'index-main.html').read(),
+          main=open(SRC + 'index-main.html').read().replace('{{partners}}', partner_grid()).replace('{{blog}}', featured_articles()),
           current='index.html',
           loader=True,
           preload=preload,

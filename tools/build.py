@@ -70,7 +70,7 @@ def build(out, title, desc, main, current=None, sub_current=None, extra_head='',
                         (extra_scripts + '\n' if extra_scripts else '') + '<script src="js/main.js" defer></script>')
     if jsonld:
         if jsonld.get('@type') == 'FinancialService':
-            head += '\n<!-- TODO: confirm the geo coordinates, and add the official Facebook, YouTube and LinkedIn URLs to "sameAs" -->'
+            head += '\n<!-- TODO: confirm the geo coordinates, and add the official YouTube URL to "sameAs" -->'
         head += '\n<script type="application/ld+json">\n' + json.dumps(jsonld, indent=2, ensure_ascii=False) + '\n</script>'
     crumbs = breadcrumb_jsonld(main, canonical)
     if crumbs:
@@ -88,6 +88,9 @@ def build(out, title, desc, main, current=None, sub_current=None, extra_head='',
             if f'href="{sub_current}"' in blk and blk.startswith('<li class="nav__item nav__item--has-sub'):
                 blocks[i] = re.sub(r'^<li class="(nav__item nav__item--has-sub[^"]*)"', r'<li class="\1 is-active"', blk)
         header = ''.join(blocks)
+        # A service page not listed in the menu (e.g. Corporate Insurance) still highlights Services
+        if ' is-active"' not in header and sub_current.endswith('.html') and not sub_current.endswith('calculator.html') and sub_current != 'calculators.html':
+            header = header.replace('<li class="nav__item nav__item--has-sub nav__item--more">', '<li class="nav__item nav__item--has-sub nav__item--more is-active">', 1)
         header = re.sub(f'<a href="{re.escape(sub_current)}"', f'<a href="{sub_current}" aria-current="page"', header)
         header = header.replace(f'<a class="mega__all" href="{sub_current}">', f'<a class="mega__all" href="{sub_current}" aria-current="page">')
 

@@ -380,6 +380,34 @@
     update();
   }
 
+  /* ---------- Team profiles: card → popup with full details (native <dialog>) ---------- */
+  function initTeamProfiles() {
+    var dlg = $('.team-modal');
+    var cards = $$('.team-card');
+    if (!dlg || !cards.length || typeof dlg.showModal !== 'function') return;
+    var img = $('.team-modal__photo img', dlg);
+    var opener = null;
+
+    cards.forEach(function (card) {
+      var btn = $('.team-card__btn', card);
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var photo = $('.team-card__photo img', card);
+        img.src = photo.currentSrc || photo.src;
+        img.alt = photo.alt;
+        $('.team-modal__name', dlg).textContent = btn.textContent;
+        $('.team-modal__role', dlg).innerHTML = $('.team-card__role', card).innerHTML;
+        $('.team-modal__details', dlg).innerHTML = $('.team-card__details', card).innerHTML;
+        opener = btn;
+        dlg.showModal();
+        $('.team-modal__close', dlg).focus();
+      });
+    });
+    $('.team-modal__close', dlg).addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });   // click on the backdrop
+    dlg.addEventListener('close', function () { if (opener) opener.focus(); });
+  }
+
   /* ---------- Awards lightbox (native <dialog>) ---------- */
   function initLightbox() {
     var dlg = $('.lightbox');
@@ -566,7 +594,7 @@
         var key = form.getAttribute('data-access-key');
         if (!key || key.indexOf('YOUR_') === 0) {
           console.warn('Contact form: set data-access-key to your Web3Forms access key.'); // TODO
-          setStatus('error', "Our online form isn't connected yet. Please call +91 97475 46614 or message us on WhatsApp.");
+          setStatus('error', "Our online form isn't connected yet. Please call +91 98470 46614 or message us on WhatsApp.");
           return;
         }
 
@@ -595,7 +623,7 @@
             status.focus();
           })
           .catch(function () {
-            setStatus('error', 'Sorry, your message could not be sent. Please try again, or call us on +91 97475 46614.');
+            setStatus('error', 'Sorry, your message could not be sent. Please try again, or call us on +91 98470 46614.');
           })
           .then(function () {
             submit.removeAttribute('aria-busy');
@@ -714,6 +742,54 @@
     });
   }
 
+  /* ---------- Blog: category filter, search and "load more" ----------
+     [data-blog] with data-limit (home: show at most N) or data-page-size (blog page: show N, then load more).
+     blog.html?cat=<key> preselects a category. Without JS every card is shown. */
+  function initBlog() {
+    $$('[data-blog]').forEach(function (root) {
+      var cards = $$('.blog-card', root);
+      var chips = $$('[data-filter]', root);
+      var search = $('[data-blog-search]', root);
+      var count = $('[data-blog-count]', root);
+      var empty = $('[data-blog-empty]', root);
+      var more = $('[data-blog-more]', root);
+      var limit = Number(root.getAttribute('data-limit')) || 0;
+      var pageSize = Number(root.getAttribute('data-page-size')) || 0;
+      var filter = 'all';
+      var shown = pageSize;
+
+      function apply() {
+        var q = search ? search.value.trim().toLowerCase() : '';
+        var matches = cards.filter(function (c) {
+          return (filter === 'all' || c.getAttribute('data-category') === filter) &&
+                 (!q || c.getAttribute('data-search').indexOf(q) > -1);
+        });
+        var max = limit || shown || matches.length;
+        cards.forEach(function (c) { c.hidden = true; });
+        matches.slice(0, max).forEach(function (c) { c.hidden = false; });
+        if (more) more.hidden = !pageSize || matches.length <= max;
+        if (empty) empty.hidden = matches.length > 0;
+        if (count) count.textContent = limit ? '' : (matches.length === 1 ? '1 article' : matches.length + ' articles') +
+          (filter !== 'all' || q ? ' found' : '');
+      }
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          filter = chip.getAttribute('data-filter');
+          chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+          shown = pageSize;
+          apply();
+        });
+      });
+      if (search) search.addEventListener('input', function () { shown = pageSize; apply(); });
+      if (more) more.addEventListener('click', function () { shown += pageSize; apply(); });
+
+      var cat = new URLSearchParams(window.location.search).get('cat');
+      var preset = cat && chips.filter(function (c) { return c.getAttribute('data-filter') === cat; })[0];
+      if (preset) preset.click(); else apply();
+    });
+  }
+
   /* ---------- Footer year ---------- */
   function setYear() {
     $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
@@ -732,9 +808,11 @@
     initCounters();
     initInView();
     initLightbox();
+    initTeamProfiles();
     initForms();
     initAccordions();
     initCopyButtons();
+    initBlog();
     initAOS();
     setYear();
   }

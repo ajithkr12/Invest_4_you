@@ -4,118 +4,7 @@ from pages_common import *
 CHART_JS = '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>'
 CALC_JS = '<script src="js/calculators.js" defer></script>'
 
-# ---------------------------------------------------------------- Blog
-POSTS = [
-    ('blog-article.html', 'post-1', 'Life insurance', 'How much life insurance do you really need?',
-     'A simple way to work out the right cover for your family, and the mistakes to avoid.', '6 min read'),
-    (None, 'post-2', 'Health insurance', 'Five things to check before you buy a health policy',
-     'Room-rent limits, waiting periods, co-pay and more: what the brochure doesn\'t tell you.', '5 min read'),
-    (None, 'post-3', 'Mutual funds', 'SIP or lump sum: which suits you?',
-     'How each approach works, and how to decide based on your cash flow and goals.', '4 min read'),
-]
-
-
-def blog():
-    cards = []
-    for i, (href, img, cat, title, excerpt, mins) in enumerate(POSTS):
-        link = f'<a href="{href}">{title}</a>' if href else title
-        badge = '' if href else '<span class="badge">Coming soon</span>'
-        cards.append(f'''        <article class="card post-card" data-aos="fade-up"{f' data-aos-delay="{i * 100}"' if i else ''}>
-          <img src="assets/images/blog/{img}.webp" alt="" width="1200" height="675" loading="lazy">
-          <div class="post-card__body">
-            <p class="post-card__meta"><span>{cat}</span><span>{mins}</span></p>
-            <h2>{link}</h2>
-            <p>{excerpt}</p>
-            {badge}
-          </div>
-        </article>''')
-    body = main(
-        banner('Financial Tips &amp; Insights', [('Blog', None)], 'Plain-language guides on insurance, investing and planning, from our team.', img='blog'),
-        f'''  <section class="section bg-alt" aria-label="Articles">
-    <div class="container">
-      <!-- TODO: add more articles; copy blog-article.html as the template for each one -->
-      <div class="grid grid--3">
-{chr(10).join(cards)}
-      </div>
-    </div>
-  </section>''',
-        cta_band(),
-    )
-    page('blog.html', 'Blog: Financial Tips', 'Financial tips from Invest 4U Solutions: life and health insurance, mutual funds, SIPs, retirement and tax planning, explained simply.',
-         body, banner_img='blog')
-
-
-def article():
-    body = main(
-        f'''  <section class="page-banner">
-    <img class="page-banner__bg" src="assets/images/banners/blog.webp" alt="" width="1920" height="640" fetchpriority="high">
-    <div class="container">
-      <span class="eyebrow eyebrow--light">Life insurance</span>
-      <h1>How much life insurance do you really need?</h1>
-      <p class="article-meta"><span>By the Invest 4U team</span><span><time datetime="2026-09-01">1 September 2026</time></span><span>6 min read</span></p>
-      {crumbs([("Home", "index.html"), ("Blog", "blog.html"), ("How much life insurance do you need?", None)])}
-    </div>
-  </section>''',
-        f'''  <section class="section">
-    <div class="container with-aside">
-      <article class="prose">
-        <!-- TODO: sample article for the template; review the content and date before publishing -->
-        <div class="article-hero"><img src="assets/images/blog/post-1.webp" alt="" width="1200" height="675" loading="lazy"></div>
-        <p><strong>Life insurance exists for one reason: to replace your income if you're no longer there to earn it.</strong> The right amount of cover depends on what your family would need, not on what a policy happens to offer.</p>
-
-        <h2>Start with the rule of thumb</h2>
-        <p>A common starting point is cover of 10 to 15 times your annual income. For someone earning ₹10 lakh a year, that means ₹1 crore to ₹1.5 crore. It's quick, but it ignores loans, savings and the age of your children.</p>
-
-        <h2>A better way: add up what your family would need</h2>
-        <ol>
-          <li><strong>Income replacement.</strong> The income your family would lose, less what you spend on yourself, for the years until you'd have retired.</li>
-          <li><strong>Loans.</strong> Your home loan, car loan and any other debts.</li>
-          <li><strong>Big goals.</strong> Children's education and marriage, if you want those funded regardless.</li>
-          <li><strong>Minus what you already have.</strong> Existing life cover, savings and investments.</li>
-        </ol>
-        <p>This is the Human Life Value approach. Our <a href="life-cover-calculator.html">life cover calculator</a> does the maths for you in a minute.</p>
-
-        <h2>Term or endowment?</h2>
-        <p>A term plan gives the most cover for the least premium, because it pays only on death. Endowment and money-back plans also return money if you survive the term, so the same premium buys far less cover. Many families use a term plan for protection and invest separately for goals.</p>
-
-        <div class="notice">{I("lightbulb")}<p>Review your cover whenever your life changes: marriage, a new child, a home loan or a big increase in income.</p></div>
-
-        <h2>Common mistakes</h2>
-        <ul>
-          <li>Buying cover based only on how much premium you can spare.</li>
-          <li>Forgetting to include loans.</li>
-          <li>Relying only on group cover from your employer, which ends when you leave the job.</li>
-          <li>Not updating nominees.</li>
-        </ul>
-
-        <h2>The next step</h2>
-        <p>If you'd like a second opinion on your cover, book a <a href="financial-checkup.html">free financial checkup</a>. We'll review your existing policies and tell you honestly whether you need more, or less.</p>
-        <p class="updated">This article is general information, not personal advice. Insurance is the subject matter of solicitation.</p>
-      </article>
-      <aside class="aside-sticky" aria-label="Related">
-        <div class="aside-card aside-card--brand">
-          <h2>Check your cover</h2>
-          <p>Use our life cover calculator for a quick estimate.</p>
-          <a class="btn btn--block mt-6" href="life-cover-calculator.html">Open the calculator</a>
-        </div>
-        <div class="aside-card">
-          <h2>More articles</h2>
-          <ul class="toc">
-            <li><a href="blog.html">All articles</a></li>
-            <li><a href="life-insurance.html">Life insurance services</a></li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-  </section>''',
-        cta_band(),
-    )
-    jsonld = {"@context": "https://schema.org", "@type": "Article", "headline": "How much life insurance do you really need?",
-              "datePublished": "2026-09-01", "author": {"@type": "Organization", "name": "Invest 4U Solutions"},
-              "publisher": {"@type": "Organization", "name": "Invest 4U Solutions", "logo": {"@type": "ImageObject", "url": "https://www.invest4u.in/assets/images/logo.png"}},
-              "image": "https://www.invest4u.in/assets/images/blog/post-1.webp", "mainEntityOfPage": "https://www.invest4u.in/blog-article.html"}
-    page('blog-article.html', 'How Much Life Insurance Do You Need?', 'A simple guide to working out the right life insurance cover for your family, using the Human Life Value method, with common mistakes to avoid.',
-         body, banner_img='blog', jsonld=jsonld, og_type='article', published='2026-09-01')
+# Blog and articles are built by pages_blog.py (content in blog_data.py).
 
 
 # ---------------------------------------------------------------- Legal pages
@@ -140,7 +29,7 @@ def legal(out, title, desc, lead, sections, updated='[Date]', review=True):
         </nav>
         <div class="aside-card">
           <h2>Questions?</h2>
-          <p>Email <a href="mailto:service@invest4u.in">service@invest4u.in</a> or call <a href="tel:+919747546614">+91 97475 46614</a>.</p>
+          <p>Email <a href="mailto:service@invest4u.in">service@invest4u.in</a> or call <a href="tel:+919847046614">+91 98470 46614</a>.</p>
         </div>
       </aside>
     </div>
@@ -153,7 +42,7 @@ def legal(out, title, desc, lead, sections, updated='[Date]', review=True):
 GRIEVANCE_CONTACT = '''<ul>
           <li><strong>Grievance Officer:</strong> [Name TO BE PROVIDED]</li>
           <li><strong>Email:</strong> <a href="mailto:service@invest4u.in">service@invest4u.in</a> <!-- TODO: confirm or use a dedicated grievance address --></li>
-          <li><strong>Phone:</strong> <a href="tel:+919747546614">+91 97475 46614</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+919847046614">+91 98470 46614</a></li>
           <li><strong>Address:</strong> K &amp; VK Invest 4U Advisory Services LLP, Vaikkom Road, Kannankulangara, Tripunithura, Kochi, Kerala 682301</li>
         </ul>'''
 
@@ -293,8 +182,6 @@ def not_found():
 
 
 if __name__ == '__main__':
-    blog()
-    article()
     privacy()
     terms()
     disclaimer()
