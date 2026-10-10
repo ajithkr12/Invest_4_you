@@ -138,6 +138,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
+  overflow-x: clip;   /* safety net: nothing can be dragged in sideways (iOS Safari); clip, unlike hidden, keeps position: sticky working */
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h-scrolled) + 1rem);
@@ -1280,6 +1281,13 @@ html.loader-lock { overflow: hidden; }
 .swatch { border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; font-size: var(--fs-xs); background: var(--color-white); }
 .swatch span { display: block; height: 70px; }
 .swatch code { display: block; padding: var(--space-2) var(--space-3); }
+
+/* Phones: side-slide scroll animations start 100px outside the screen and widen the page.
+   Turn them into a short upward fade instead (desktop keeps the side slides). */
+@media (max-width: 767px) {
+  [data-aos="fade-left"]:not(.aos-animate),
+  [data-aos="fade-right"]:not(.aos-animate) { transform: translate3d(0, 24px, 0) !important; }
+}
 
 /* Show AOS content if JS or the AOS CDN is unavailable */
 .no-js [data-aos], .no-aos [data-aos] { opacity: 1 !important; transform: none !important; }
