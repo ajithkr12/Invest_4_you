@@ -286,8 +286,9 @@
   }
 
   /* ---------- Hero video slider ----------
-     Videos load only on 768px+ screens, without reduced motion or data saver; phones keep the posters.
-     Only the active slide's video plays. Inactive slides are inert so their links can't be tabbed to. */
+     Phones (<768px) get the portrait data-src-mobile file, wider screens data-src (picked once, at first play).
+     No video under reduced motion or data saver; the posters stay. Only the active slide's video plays.
+     Inactive slides are inert so their links can't be tabbed to. */
   function initHeroSlider() {
     var el = $('.hero-swiper');
     if (!el || typeof window.Swiper === 'undefined') return;
@@ -295,7 +296,8 @@
     var toggle = $('.hero__toggle', hero);
     var slides = $$('.swiper-slide', el);
     var saveData = navigator.connection && navigator.connection.saveData;
-    var useVideo = window.matchMedia('(min-width: 768px)').matches && !reducedMotion.matches && !saveData;
+    var useVideo = !reducedMotion.matches && !saveData;
+    var srcAttr = window.matchMedia('(min-width: 768px)').matches ? 'data-src' : 'data-src-mobile';
     var paused = false;
 
     function sync(swiper) {
@@ -307,7 +309,7 @@
         if (active && useVideo && !paused) {
           if (!video.src) {
             video.addEventListener('playing', function () { video.classList.add('is-playing'); }, { once: true });
-            video.src = video.getAttribute('data-src');
+            video.src = video.getAttribute(srcAttr) || video.getAttribute('data-src');
           }
           var p = video.play();
           if (p && p.catch) p.catch(function () { /* autoplay blocked: poster stays visible */ });

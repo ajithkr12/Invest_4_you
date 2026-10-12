@@ -58,7 +58,7 @@ ORG = {
 
 def main():
     preload = ('<link rel="preload" as="image" href="assets/videos/hero-1-mobile.webp" media="(max-width: 767px)" fetchpriority="high">\n'
-               '<link rel="preload" as="image" href="assets/videos/hero-1.webp" media="(min-width: 768px)" fetchpriority="high">')
+               '<link rel="preload" as="image" href="assets/videos/hero-1-poster.webp" media="(min-width: 768px)" fetchpriority="high">')
     build('index.html',
           title='Home',
           full_title='Invest 4U Solutions | Insurance & Investment Advisors, Kochi',

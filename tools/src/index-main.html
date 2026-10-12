@@ -1,9 +1,9 @@
 <main id="main">
 
   <!-- ============ 1. Hero video slider ============
-       TODO: replace assets/videos/hero-1/2/3.mp4 and their .webp posters with real footage
-       (Pexels themes: family, office meeting, growth chart). Keep each MP4 under 3 MB, muted, no audio track.
-       Videos load only on screens 768px+ and never under reduced motion; phones see the posters. -->
+       Videos: assets/videos/hero-1/2/3.webm (VP9, muted, no audio track). Desktop posters are hero-N-poster.webp (first frame).
+       Phones (<768px) play the portrait hero-N-mobile.webm with hero-N-mobile.webp posters (first frame).
+       Videos never load under reduced motion or data saver; the posters show instead. -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="swiper hero-swiper">
       <div class="swiper-wrapper">
@@ -11,10 +11,10 @@
         <div class="swiper-slide">
           <div class="hero__media">
             <picture>
-              <source media="(min-width: 768px)" srcset="assets/videos/hero-1.webp">
-              <img src="assets/videos/hero-1-mobile.webp" alt="" width="828" height="1472" fetchpriority="high">
+              <source media="(min-width: 768px)" srcset="assets/videos/hero-1-poster.webp">
+              <img src="assets/videos/hero-1-mobile.webp" alt="" width="540" height="960" fetchpriority="high">
             </picture>
-            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-1.mp4"></video>
+            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-1.webm" data-src-mobile="assets/videos/hero-1-mobile.webm"></video>
           </div>
           <!-- Slide 1: brand message (the page <h1>); slides 2 and 3 keep their own headlines -->
           <div class="hero__content hero__content--brand">
@@ -37,10 +37,10 @@
         <div class="swiper-slide">
           <div class="hero__media">
             <picture>
-              <source media="(min-width: 768px)" srcset="assets/videos/hero-2.webp">
-              <img src="assets/videos/hero-2-mobile.webp" alt="" width="828" height="1472" loading="lazy">
+              <source media="(min-width: 768px)" srcset="assets/videos/hero-2-poster.webp">
+              <img src="assets/videos/hero-2-mobile.webp" alt="" width="540" height="960" loading="lazy">
             </picture>
-            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-2.mp4"></video>
+            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-2.webm" data-src-mobile="assets/videos/hero-2-mobile.webm"></video>
           </div>
           <div class="hero__content">
             <div class="container">
@@ -60,10 +60,10 @@
         <div class="swiper-slide">
           <div class="hero__media">
             <picture>
-              <source media="(min-width: 768px)" srcset="assets/videos/hero-3.webp">
-              <img src="assets/videos/hero-3-mobile.webp" alt="" width="828" height="1472" loading="lazy">
+              <source media="(min-width: 768px)" srcset="assets/videos/hero-3-poster.webp">
+              <img src="assets/videos/hero-3-mobile.webp" alt="" width="540" height="960" loading="lazy">
             </picture>
-            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-3.mp4"></video>
+            <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/videos/hero-3.webm" data-src-mobile="assets/videos/hero-3-mobile.webm"></video>
           </div>
           <div class="hero__content">
             <div class="container">
