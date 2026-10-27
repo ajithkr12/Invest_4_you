@@ -596,7 +596,7 @@
         var key = form.getAttribute('data-access-key');
         if (!key || key.indexOf('YOUR_') === 0) {
           console.warn('Contact form: set data-access-key to your Web3Forms access key.'); // TODO
-          setStatus('error', "Our online form isn't connected yet. Please call +91 98470 46614 or message us on WhatsApp.");
+          setStatus('error', "Our online form isn't connected yet. Please call +91 62384 58527 or message us on WhatsApp.");
           return;
         }
 
@@ -625,7 +625,7 @@
             status.focus();
           })
           .catch(function () {
-            setStatus('error', 'Sorry, your message could not be sent. Please try again, or call us on +91 98470 46614.');
+            setStatus('error', 'Sorry, your message could not be sent. Please try again, or call us on +91 62384 58527.');
           })
           .then(function () {
             submit.removeAttribute('aria-busy');

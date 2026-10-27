@@ -29,7 +29,7 @@ def legal(out, title, desc, lead, sections, updated='[Date]', review=True):
         </nav>
         <div class="aside-card">
           <h2>Questions?</h2>
-          <p>Email <a href="mailto:service@invest4u.in">service@invest4u.in</a> or call <a href="tel:+919847046614">+91 98470 46614</a>.</p>
+          <p>Email <a href="mailto:service@invest4u.in">service@invest4u.in</a> or call <a href="tel:+916238458527">+91 62384 58527</a>.</p>
         </div>
       </aside>
     </div>
@@ -42,7 +42,7 @@ def legal(out, title, desc, lead, sections, updated='[Date]', review=True):
 GRIEVANCE_CONTACT = '''<ul>
           <li><strong>Grievance Officer:</strong> [Name TO BE PROVIDED]</li>
           <li><strong>Email:</strong> <a href="mailto:service@invest4u.in">service@invest4u.in</a> <!-- TODO: confirm or use a dedicated grievance address --></li>
-          <li><strong>Phone:</strong> <a href="tel:+919847046614">+91 98470 46614</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+916238458527">+91 62384 58527</a></li>
           <li><strong>Address:</strong> K &amp; VK Invest 4U Advisory Services LLP, Vaikkom Road, Kannankulangara, Tripunithura, Kochi, Kerala 682301</li>
         </ul>'''
 

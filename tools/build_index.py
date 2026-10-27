@@ -16,7 +16,7 @@ ORG = {
     "image": "https://www.invest4u.in/assets/images/og-image.jpg",
     "foundingDate": "1992",
     "founder": {"@type": "Person", "name": "K.N. Krishnankutty", "jobTitle": "Founder & Managing Director"},
-    "telephone": "+91-98470-46614",
+    "telephone": "+91-62384-58527",
     "email": "info@invest4u.in",
     "priceRange": "Free consultation",
     "address": {
@@ -39,7 +39,7 @@ ORG = {
     "department": [{
         "@type": "FinancialService",
         "name": "Invest 4U Solutions, Infopark Branch",
-        "telephone": "+91-98470-56614",
+        "telephone": "+91-62381-94617",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Ground Floor, Thapasya Building, Infopark",
@@ -52,7 +52,7 @@ ORG = {
         "https://www.facebook.com/investmests4u/",
         "https://in.linkedin.com/company/invest4usolutions",
         "https://www.instagram.com/invest4u.in/",
-        "https://wa.me/919847046614"
+        "https://wa.me/916238458527"
     ]
 }
 

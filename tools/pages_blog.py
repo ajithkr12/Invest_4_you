@@ -119,7 +119,7 @@ def next_steps():
       <p>Every family's situation is different. We're happy to explain how this applies to you, at no cost.</p>
       <ul class="next-steps__grid">
         <li><a class="next-step" href="contact.html">{I("calendar-check")}<strong>Book a Free Consultation</strong><span>Meet us at our office, at home or online.</span></a></li>
-        <li><a class="next-step" href="tel:+919847046614">{I("phone")}<strong>Talk to an Advisor</strong><span>Call +91 98470 46614, Mon to Sat, 9 to 6:30.</span></a></li>
+        <li><a class="next-step" href="tel:+916238458527">{I("phone")}<strong>Talk to an Advisor</strong><span>Call +91 62384 58527, Mon to Sat, 9 to 6:30.</span></a></li>
         <li><a class="next-step" href="financial-checkup.html">{I("clipboard-check")}<strong>Get a Free Financial Review</strong><span>A complete check of your cover, savings and goals.</span></a></li>
       </ul>
     </div>

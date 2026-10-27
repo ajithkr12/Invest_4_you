@@ -27,7 +27,7 @@ FOUNDER_SIGN = _slice(INDEX_MAIN, '<figcaption class="founder__sign">', '</figca
 INNER_HEAD = AOS_CSS
 INNER_SCRIPTS = AOS_JS
 
-CALL = f'<a class="btn btn--outline-white" href="tel:+919847046614">{I("phone")} +91 98470 46614</a>'
+CALL = f'<a class="btn btn--outline-white" href="tel:+916238458527">{I("phone")} +91 62384 58527</a>'
 
 
 def crumbs(items):
