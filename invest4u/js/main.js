@@ -855,25 +855,36 @@
 
   /* ---------- Boot ---------- */
   function init() {
-    initLoader();
-    initHeader();
-    initMobileNav();
-    initSubmenus();
-    initSmoothScroll();
-    initBackToTop();
-    initHeroSlider();
-    initTestimonialCloud();
-    initTestimonialPopup();
-    initCounters();
-    initInView();
-    initLightbox();
-    initTeamProfiles();
-    initForms();
-    initAccordions();
-    initCopyButtons();
-    initBlog();
-    initAOS();
-    setYear();
+    // Run each feature on its own, so one error can't stop the rest
+    // (an error before initAOS used to leave animated sections invisible).
+    [initLoader, initHeader, initMobileNav, initSubmenus, initSmoothScroll,
+     initBackToTop, initHeroSlider, initTestimonialCloud, initTestimonialPopup,
+     initCounters, initInView, initLightbox, initTeamProfiles, initForms,
+     initAccordions, initCopyButtons, initBlog, initAOS, setYear
+    ].forEach(function (fn) {
+      try { fn(); } catch (err) { if (window.console) console.error(fn.name, err); }
+    });
+    initAOSSafety();
+  }
+
+  /* ---------- AOS safety net ----------
+     Recalculate positions once images have loaded, and if AOS still hasn't
+     started (slow/blocked CDN, script error), show all animated content. */
+  function initAOSSafety() {
+    if (!$('[data-aos]')) return;
+    function check() {
+      if (window.AOS && $('[data-aos].aos-init')) {
+        try { window.AOS.refresh(); } catch (e) { /* ignore */ }
+      } else {
+        root.classList.add('no-aos');
+      }
+    }
+    if (document.readyState === 'complete') setTimeout(check, 1500);
+    else window.addEventListener('load', function () { setTimeout(check, 1500); });
+    // Last resort if the load event is very slow
+    setTimeout(function () {
+      if (!(window.AOS && $('[data-aos].aos-init'))) root.classList.add('no-aos');
+    }, 6000);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
