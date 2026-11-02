@@ -2006,6 +2006,34 @@ html.loader-lock { overflow: hidden; }
 .tc-card:nth-child(3n+1) .tc-card__avatar { background: var(--color-accent-dark); }
 .tc-card__name { display: block; font-family: var(--font-heading); font-size: 14.5px; font-weight: 700; font-style: normal; color: var(--color-primary); }
 .tc-card__role { display: block; font-size: 12.5px; color: #4E5D72; }
+.tc-card[role="button"] { cursor: pointer; transition: border-color .2s, box-shadow .2s; }   /* no transform here: the 3D flight owns it */
+.tc-card[role="button"]:hover { border-color: var(--color-accent); box-shadow: 0 14px 36px rgba(1,51,100,.16); }
+.tc-card:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+
+/* Testimonial popup (built by initTestimonialPopup in main.js); close button shares the team popup styles */
+.tc-modal {
+  width: min(calc(100vw - 72px), 640px);
+  max-height: 90vh;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  overflow: visible;
+}
+.tc-modal::backdrop { background: rgba(6,26,46,.75); backdrop-filter: blur(3px); }
+.tc-modal[open] { animation: tc-pop .35s var(--ease); }
+@keyframes tc-pop { from { opacity: 0; transform: scale(.85); } }
+.tc-modal__body { max-height: 90vh; overflow-y: auto; overscroll-behavior: contain; padding: clamp(28px, 5vw, 48px); border-radius: inherit; }
+.tc-modal__body::before { content: "\201C"; display: block; height: .55em; font-family: Georgia, serif; font-size: 88px; line-height: 1; color: var(--color-accent); }
+.tc-modal .tc-card__text { margin-bottom: var(--space-6); }
+.tc-modal .tc-card__text p { font-size: clamp(18px, 1rem + .6vw, 22px); line-height: 1.6; }
+.tc-modal .tc-card__avatar { width: 52px; height: 52px; font-size: 17px; }
+.tc-modal__body--alt .tc-card__avatar { background: var(--color-accent-dark); }
+.tc-modal .tc-card__name { font-size: 17px; }
+.tc-modal .tc-card__role { font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { .tc-modal[open] { animation: none; } }
 
 /* Static layouts: phones and reduced motion get readable cards without the 3D flight */
 @media (max-width: 767px), (prefers-reduced-motion: reduce) {

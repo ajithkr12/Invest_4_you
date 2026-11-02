@@ -382,6 +382,48 @@
     update();
   }
 
+  /* ---------- Testimonials: click a card → enlarged copy in a popup (native <dialog>) ----------
+     The dialog is built here, so the page markup needs nothing extra. */
+  function initTestimonialPopup() {
+    var cards = $$('.tc-card');
+    if (!cards.length) return;
+    var dlg = document.createElement('dialog');
+    if (typeof dlg.showModal !== 'function') return;
+    dlg.className = 'tc-modal';
+    dlg.setAttribute('aria-label', 'Client testimonial');
+    dlg.innerHTML =
+      '<button class="team-modal__close tc-modal__close" type="button" aria-label="Close testimonial">' +
+      '<svg class="icon" viewBox="0 0 384 512" aria-hidden="true"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>' +
+      '</button><div class="tc-modal__body"></div>';
+    document.body.appendChild(dlg);
+    var body = $('.tc-modal__body', dlg);
+    var opener = null;
+
+    function open(card) {
+      // Cards fading out in the 3D flight can still sit under the pointer: ignore the nearly invisible ones
+      if (parseFloat(window.getComputedStyle(card).opacity) < 0.2) return;
+      body.innerHTML = card.innerHTML;
+      body.classList.toggle('tc-modal__body--alt', cards.indexOf(card) % 3 === 0);   // same avatar colour as the card
+      opener = card;
+      dlg.showModal();
+      $('.tc-modal__close', dlg).focus();
+    }
+
+    cards.forEach(function (card) {
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-haspopup', 'dialog');
+      card.setAttribute('aria-label', 'Read testimonial from ' + ($('.tc-card__name', card) || card).textContent.trim());
+      card.addEventListener('click', function () { open(card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
+      });
+    });
+    $('.tc-modal__close', dlg).addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });   // click on the backdrop
+    dlg.addEventListener('close', function () { if (opener) opener.focus({ preventScroll: true }); });
+  }
+
   /* ---------- Team profiles: card → popup with full details (native <dialog>) ---------- */
   function initTeamProfiles() {
     var dlg = $('.team-modal');
@@ -454,7 +496,11 @@
     dlg.addEventListener('close', function () { if (opener) opener.focus(); });
   }
 
-  /* ---------- Forms: validation, honeypot, Web3Forms submit, optional multi-step ----------
+  /* Google Apps Script web app that emails form submissions (source: google-apps-script/Code.gs).
+     Paste the deployment's /exec URL here. */
+  var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycby-90k0oHCLseOh9733U617ski37_hTS06nLbN26kES_Ng6RwcrB4hNnYU9CYUqTyBddA/exec';
+
+  /* ---------- Forms: validation, honeypot, Google Apps Script submit, optional multi-step ----------
      Any form with [data-contact-form]. Add [data-multistep] and wrap groups of fields in
      <fieldset class="form-step" data-title="…"> to split it into steps with a progress bar.
      Optional data-success="…" overrides the thank-you message. */
@@ -593,23 +639,33 @@
           return;
         }
 
-        var key = form.getAttribute('data-access-key');
-        if (!key || key.indexOf('YOUR_') === 0) {
-          console.warn('Contact form: set data-access-key to your Web3Forms access key.'); // TODO
+        if (!FORM_ENDPOINT || FORM_ENDPOINT.indexOf('YOUR_') === 0) {
+          console.warn('Contact form: set FORM_ENDPOINT in main.js to your Google Apps Script /exec URL.'); // TODO
           setStatus('error', "Our online form isn't connected yet. Please call +91 62384 58527 or message us on WhatsApp.");
           return;
         }
 
-        var data = new FormData(form);
-        data.append('access_key', key);
+        // Sent as URL-encoded fields (a "simple" request, so no CORS preflight; Apps Script reads them as e.parameters)
+        var data = new URLSearchParams();
+        new FormData(form).forEach(function (value, name) {
+          if (name === 'access_key' || name === 'from_name' || name === 'botcheck') return;
+          var el = form.elements[name];
+          // Dropdowns: send the readable label ("Life Insurance"), not the value ("life-insurance")
+          if (el && el.tagName === 'SELECT' && el.selectedIndex > 0) value = el.options[el.selectedIndex].text;
+          data.append(name, value);
+        });
+        data.append('form', steps.length ? 'Free Financial Checkup request' : 'Contact form enquiry');
+        data.append('page', window.location.href.split('#')[0]);
+        data.append('page_title', document.title);
+
         var label = submit.innerHTML;
         submit.setAttribute('aria-busy', 'true');
         submit.textContent = 'Sending…';
 
-        fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        fetch(FORM_ENDPOINT, { method: 'POST', body: data })
           .then(function (res) {
             return res.json().catch(function () { return {}; }).then(function (json) {
-              if (!res.ok || json.success === false) throw new Error(json.message || res.status);
+              if (!res.ok || json.result !== 'success') throw new Error(json.message || res.status);
             });
           })
           .then(function () {
@@ -807,6 +863,7 @@
     initBackToTop();
     initHeroSlider();
     initTestimonialCloud();
+    initTestimonialPopup();
     initCounters();
     initInView();
     initLightbox();
