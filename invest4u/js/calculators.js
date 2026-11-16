@@ -41,15 +41,17 @@
 
   /* ---------- Shared maths ---------- */
   // Future value of a monthly SIP (payments at the start of each month)
+  // i is the true monthly rate equivalent to the typed annual rate, so compounding
+  // it 12 times lands back on exactly annualRate (not annualRate/12/100, which over-compounds).
   function sipFV(monthly, annualRate, months) {
-    var i = annualRate / 12 / 100;
+    var i = Math.pow(1 + annualRate / 100, 1 / 12) - 1;
     if (!i) return monthly * months;
     return monthly * ((Math.pow(1 + i, months) - 1) / i) * (1 + i);
   }
   // Monthly SIP needed to reach a target
   function sipNeeded(target, annualRate, months) {
     if (target <= 0 || months <= 0) return 0;
-    var i = annualRate / 12 / 100;
+    var i = Math.pow(1 + annualRate / 100, 1 / 12) - 1;
     if (!i) return target / months;
     return target * i / ((Math.pow(1 + i, months) - 1) * (1 + i));
   }
